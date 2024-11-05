@@ -6,7 +6,7 @@
 /*   By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 13:56:32 by ncharbog          #+#    #+#             */
-/*   Updated: 2024/11/05 13:56:35 by ncharbog         ###   ########.fr       */
+/*   Updated: 2024/11/05 16:20:45 by ncharbog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ int	ft_atoi(char *nptr)
 	return (result);
 }
 
-int	ft_across(char *str)
+int	ft_across(char *str, stack_a *root)
 {
 	int	i;
 	int	result;
@@ -65,18 +65,11 @@ int	ft_across(char *str)
 	i = 0;
 	while (str[i])
 	{
-		if (str[i] != '0')
-		{
-			result = ft_atoi(&str[i]);
-				if (!result)
-				return (0);
-			i += ft_count(result);
-		}
-		else if (str[i] == '0')
-		{
-			result = ft_atoi(&str[i]);
-			i++;
-		}
+		result = ft_atoi(&str[i]);
+		if (!result)
+			return (0);
+		add_node(root, result);
+		i += ft_count(result);
 		if (str[i] == ' ')
 			i++;
 	}
@@ -85,27 +78,39 @@ int	ft_across(char *str)
 
 #include <stdio.h>
 
+void print_list(stack_a *root)
+{
+	if (!root)
+		return;
+    stack_a *current = root;
+    while (current)
+    {
+       	printf("\n%d", current->nb);
+        current = current->next;
+		if (current == root)
+			return ;
+    }
+}
+
 int	main(int argc, char **argv)
 {
-	int	i;
-	int	result;
+	int		i;
+	stack_a	*root;
 
 	i = 1;
-	result = 0;
+	root = create_stack_a();
 	if (argc >= 2)
 	{
 		while (argv[i])
 		{
-			result = ft_across(argv[i]);
-			if (!result)
+			if (!ft_across(argv[i], root))
 			{
 				write(1, "Error\n", 6);
 				return (0);
 			}
 			i++;
 		}
-		printf("%d", result);
-		return (0);
+		print_list(root);
 	}
 	write(1, "Error\n", 6);
 	return (0);
