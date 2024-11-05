@@ -6,7 +6,7 @@
 /*   By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 10:03:39 by ncharbog          #+#    #+#             */
-/*   Updated: 2024/11/05 16:14:34 by ncharbog         ###   ########.fr       */
+/*   Updated: 2024/11/05 16:44:31 by ncharbog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ typedef struct s_list
 int		ft_across(char *str, stack_a *root);
 int		ft_atoi(char *nptr);
 int		ft_count(int n);
+void	ft_free(stack_a **root);
 void	*add_node(stack_a *root, int value);
 stack_a	*create_stack_a(void);
 

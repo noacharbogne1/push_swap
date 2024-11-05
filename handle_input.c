@@ -6,11 +6,24 @@
 /*   By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 13:56:32 by ncharbog          #+#    #+#             */
-/*   Updated: 2024/11/05 16:20:45 by ncharbog         ###   ########.fr       */
+/*   Updated: 2024/11/05 16:45:47 by ncharbog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	ft_free(stack_a **root)
+{
+	stack_a	*tmp;
+
+	tmp = *root;
+	while (root)
+	{
+		tmp = (*root)->next;
+		free(*root);
+		*root = tmp;
+	}
+}
 
 int	ft_count(int n)
 {
@@ -106,6 +119,7 @@ int	main(int argc, char **argv)
 			if (!ft_across(argv[i], root))
 			{
 				write(1, "Error\n", 6);
+				ft_free(&root);
 				return (0);
 			}
 			i++;
