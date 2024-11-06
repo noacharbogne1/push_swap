@@ -6,7 +6,7 @@
 /*   By: noacharbogne <noacharbogne@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 10:03:39 by ncharbog          #+#    #+#             */
-/*   Updated: 2024/11/06 16:13:11 by noacharbogn      ###   ########.fr       */
+/*   Updated: 2024/11/06 16:49:17 by noacharbogn      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ t_list	*create_list(void);
 void	push(t_list *from, t_list *to);
 void    swap(t_list *root);
 void	rotate(t_list *root);
+void	reverse_rotate(t_list *root);
 void	del_node(t_list *element);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: noacharbogne <noacharbogne@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 13:56:32 by ncharbog          #+#    #+#             */
-/*   Updated: 2024/11/06 16:39:16 by noacharbogn      ###   ########.fr       */
+/*   Updated: 2024/11/06 16:49:37 by noacharbogn      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -155,6 +155,8 @@ int	main(int argc, char **argv)
 			}
 			i++;
 		}
+		reverse_rotate(sa);
+		sb = NULL;
 		print_list(sa);
 	}
 	write(1, "Error\n", 6);
