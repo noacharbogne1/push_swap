@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   handle_input.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+        */
+/*   By: noacharbogne <noacharbogne@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 13:56:32 by ncharbog          #+#    #+#             */
-/*   Updated: 2024/11/05 16:45:47 by ncharbog         ###   ########.fr       */
+/*   Updated: 2024/11/06 10:10:53 by noacharbogn      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,26 @@
 void	ft_free(stack_a **root)
 {
 	stack_a	*tmp;
+	stack_a	*next;
 
+	if (*root == NULL)
+		return ;
 	tmp = *root;
-	while (root)
+	if (tmp->next == (*root))
 	{
-		tmp = (*root)->next;
-		free(*root);
-		*root = tmp;
+		free(tmp);
+		*root = NULL;
+		return ;
 	}
+	next = tmp->next;
+	while (next != (*root))
+	{
+		tmp = next;
+		next = tmp->next;
+		free(tmp);
+	}
+	free(*root);
+	*root = NULL;
 }
 
 int	ft_count(int n)
@@ -70,6 +82,21 @@ int	ft_atoi(char *nptr)
 	return (result);
 }
 
+int	ft_check_dup(int result, stack_a *root)
+{
+	stack_a	*tmp;
+
+	tmp = root;
+	tmp = tmp-> next;
+	while (tmp != root)
+	{
+		if (tmp->nb == result)
+			return (1);
+		tmp = tmp->next;
+	}
+	return (0);
+}
+
 int	ft_across(char *str, stack_a *root)
 {
 	int	i;
@@ -80,6 +107,8 @@ int	ft_across(char *str, stack_a *root)
 	{
 		result = ft_atoi(&str[i]);
 		if (!result)
+			return (0);
+		if (ft_check_dup(result, root))
 			return (0);
 		add_node(root, result);
 		i += ft_count(result);
