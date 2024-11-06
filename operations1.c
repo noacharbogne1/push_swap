@@ -1,34 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   operations1.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: noacharbogne <noacharbogne@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/05 10:03:39 by ncharbog          #+#    #+#             */
-/*   Updated: 2024/11/06 11:27:58 by noacharbogn      ###   ########.fr       */
+/*   Created: 2024/11/06 10:20:05 by noacharbogn       #+#    #+#             */
+/*   Updated: 2024/11/06 11:59:53 by noacharbogn      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "push_swap.h"
 
-# include <unistd.h>
-# include <stdlib.h>
-
-typedef struct s_list
+void    ft_swap_a(stack_a *root)
 {
-	int	nb;
-	struct	s_list	*prev;
-	struct	s_list	*next;
-}					stack_a;
+    stack_a *head;
+    stack_a *prev;
+    int tmp;
 
-int		ft_across(char *str, stack_a *root);
-int		ft_atoi(char *nptr);
-int		ft_count(int n);
-void	ft_free(stack_a **root);
-void	*add_node(stack_a *root, int value);
-stack_a	*create_stack_a(void);
-void    ft_swap_a(stack_a *root);
-
-#endif
+    head = root->prev;
+    prev = head->prev;
+    tmp = head->nb;
+    head->nb = prev->nb;
+    prev->nb = tmp;
+    prev->next = head;
+    head->prev = prev;
+    head->next = root;
+    prev->prev = root->prev;
+    root->prev = prev;
+}
