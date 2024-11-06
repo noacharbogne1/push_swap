@@ -6,16 +6,16 @@
 /*   By: noacharbogne <noacharbogne@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 13:56:32 by ncharbog          #+#    #+#             */
-/*   Updated: 2024/11/06 11:27:42 by noacharbogn      ###   ########.fr       */
+/*   Updated: 2024/11/06 16:39:16 by noacharbogn      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_free(stack_a **root)
+void	ft_free(t_list **root)
 {
-	stack_a	*tmp;
-	stack_a	*next;
+	t_list	*tmp;
+	t_list	*next;
 
 	if (*root == NULL)
 		return ;
@@ -82,9 +82,9 @@ int	ft_atoi(char *nptr)
 	return (result);
 }
 
-int	ft_check_dup(int result, stack_a *root)
+int	ft_check_dup(int result, t_list *root)
 {
-	stack_a	*tmp;
+	t_list	*tmp;
 
 	tmp = root;
 	tmp = tmp-> next;
@@ -97,7 +97,7 @@ int	ft_check_dup(int result, stack_a *root)
 	return (0);
 }
 
-int	ft_across(char *str, stack_a *root)
+int	ft_across(char *str, t_list *root)
 {
 	int	i;
 	int	result;
@@ -120,15 +120,15 @@ int	ft_across(char *str, stack_a *root)
 
 #include <stdio.h>
 
-void print_list(stack_a *root)
+void print_list(t_list *root)
 {
 	if (!root)
 		return;
-    stack_a *current = root;
+    t_list *current = root->next;
     while (current)
     {
        	printf("\n%d", current->nb);
-        current = current->next;
+		current = current->next;
 		if (current == root)
 			return ;
     }
@@ -137,24 +137,25 @@ void print_list(stack_a *root)
 int	main(int argc, char **argv)
 {
 	int		i;
-	stack_a	*root;
+	t_list	*sa;
+	t_list	*sb;
 
 	i = 1;
-	root = create_stack_a();
+	sa = create_list();
+	sb = create_list();
 	if (argc >= 2)
 	{
 		while (argv[i])
 		{
-			if (!ft_across(argv[i], root))
+			if (!ft_across(argv[i], sa))
 			{
 				write(1, "Error\n", 6);
-				ft_free(&root);
+				ft_free(&sa);
 				return (0);
 			}
 			i++;
 		}
-		ft_swap_a(root);
-		print_list(root);
+		print_list(sa);
 	}
 	write(1, "Error\n", 6);
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: noacharbogne <noacharbogne@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 10:03:39 by ncharbog          #+#    #+#             */
-/*   Updated: 2024/11/06 11:27:58 by noacharbogn      ###   ########.fr       */
+/*   Updated: 2024/11/06 16:13:11 by noacharbogn      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,17 @@ typedef struct s_list
 	int	nb;
 	struct	s_list	*prev;
 	struct	s_list	*next;
-}					stack_a;
+}					t_list;
 
-int		ft_across(char *str, stack_a *root);
+int		ft_across(char *str, t_list *root);
 int		ft_atoi(char *nptr);
 int		ft_count(int n);
-void	ft_free(stack_a **root);
-void	*add_node(stack_a *root, int value);
-stack_a	*create_stack_a(void);
-void    ft_swap_a(stack_a *root);
+void	ft_free(t_list **root);
+void	*add_node(t_list *root, int value);
+t_list	*create_list(void);
+void	push(t_list *from, t_list *to);
+void    swap(t_list *root);
+void	rotate(t_list *root);
+void	del_node(t_list *element);
 
 #endif
