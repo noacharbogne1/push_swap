@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   operations.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: noacharbogne <noacharbogne@student.42.f    +#+  +:+       +#+        */
+/*   By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 10:20:05 by noacharbogn       #+#    #+#             */
-/*   Updated: 2024/11/06 16:49:11 by noacharbogn      ###   ########.fr       */
+/*   Updated: 2024/11/07 14:09:56 by ncharbog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	swap(t_list *root)
 	head = root->prev;
 	prev = head->prev;
 	if (!head | !prev)
-		return ; 
+		return ;
 	tmp = head->nb;
 	head->nb = prev->nb;
 	prev->nb = tmp;
@@ -36,7 +36,7 @@ void	push(t_list *from, t_list *to)
 {
 	t_list	*top_from;
 	int		content;
-	
+
 	if (!from | !to)
 		return ;
 	top_from = from->prev;
@@ -77,4 +77,21 @@ void	reverse_rotate(t_list *root)
 	root->next->prev = root;
 	last->next = first;
 	first->prev = last;
+}
+
+int	len_lst(t_list *root)
+{
+	int		len;
+	t_list	*tmp;
+
+	len = 0;
+	tmp = root;
+	if (tmp->next == root)
+		return (1);
+	while (tmp->next != root)
+	{
+		tmp = tmp->next;
+		len++;
+	}
+	return (len);
 }

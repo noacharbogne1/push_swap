@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: noacharbogne <noacharbogne@student.42.f    +#+  +:+       +#+        */
+/*   By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 10:03:39 by ncharbog          #+#    #+#             */
-/*   Updated: 2024/11/06 16:49:17 by noacharbogn      ###   ########.fr       */
+/*   Updated: 2024/11/07 13:56:22 by ncharbog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ typedef struct s_list
 int		ft_across(char *str, t_list *root);
 int		ft_atoi(char *nptr);
 int		ft_count(int n);
+int		len_lst(t_list *root);
+int		check_order(t_list *root);
 void	ft_free(t_list **root);
 void	*add_node(t_list *root, int value);
 t_list	*create_list(void);

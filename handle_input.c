@@ -3,39 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   handle_input.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: noacharbogne <noacharbogne@student.42.f    +#+  +:+       +#+        */
+/*   By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 13:56:32 by ncharbog          #+#    #+#             */
-/*   Updated: 2024/11/06 16:49:37 by noacharbogn      ###   ########.fr       */
+/*   Updated: 2024/11/07 14:09:16 by ncharbog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	ft_free(t_list **root)
-{
-	t_list	*tmp;
-	t_list	*next;
-
-	if (*root == NULL)
-		return ;
-	tmp = *root;
-	if (tmp->next == (*root))
-	{
-		free(tmp);
-		*root = NULL;
-		return ;
-	}
-	next = tmp->next;
-	while (next != (*root))
-	{
-		tmp = next;
-		next = tmp->next;
-		free(tmp);
-	}
-	free(*root);
-	*root = NULL;
-}
 
 int	ft_count(int n)
 {
@@ -155,7 +130,9 @@ int	main(int argc, char **argv)
 			}
 			i++;
 		}
-		reverse_rotate(sa);
+		if (check_order(sa))
+			return (0);
+		printf("len : %d", len_lst(sa));
 		sb = NULL;
 		print_list(sa);
 	}
