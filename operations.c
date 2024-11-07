@@ -6,7 +6,7 @@
 /*   By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 10:20:05 by noacharbogn       #+#    #+#             */
-/*   Updated: 2024/11/07 14:09:56 by ncharbog         ###   ########.fr       */
+/*   Updated: 2024/11/07 18:12:53 by ncharbog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	swap(t_list *root)
 
 	head = root->prev;
 	prev = head->prev;
-	if (!head | !prev)
+	if (!head || !prev)
 		return ;
 	tmp = head->nb;
 	head->nb = prev->nb;
@@ -37,7 +37,7 @@ void	push(t_list *from, t_list *to)
 	t_list	*top_from;
 	int		content;
 
-	if (!from | !to)
+	if (!from || !to)
 		return ;
 	top_from = from->prev;
 	content = top_from->nb;
