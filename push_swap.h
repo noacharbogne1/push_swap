@@ -6,7 +6,7 @@
 /*   By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 10:03:39 by ncharbog          #+#    #+#             */
-/*   Updated: 2024/11/07 17:30:18 by ncharbog         ###   ########.fr       */
+/*   Updated: 2024/11/08 16:30:31 by ncharbog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,6 @@ void	reverse_rotate(t_list *root);
 void	del_node(t_list *element);
 void	three_elems(t_list *root);
 void	four_elems(t_list *sa, t_list *sb);
+void	five_elems(t_list *sa, t_list *sb);
 
 #endif

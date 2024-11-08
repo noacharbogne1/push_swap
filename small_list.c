@@ -6,7 +6,7 @@
 /*   By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 14:42:14 by ncharbog          #+#    #+#             */
-/*   Updated: 2024/11/08 11:31:29 by ncharbog         ###   ########.fr       */
+/*   Updated: 2024/11/08 19:57:25 by ncharbog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ void	three_elems(t_list *root)
 	elem1 = root->next;
 	elem2 = elem1->next;
 	elem3 = root->prev;
+	if (check_order(root) == 1)
+		return ;
 	if (elem1->nb < elem2->nb && elem3->nb < elem2->nb)
 	{
 		if (elem1->nb > elem3->nb)
@@ -64,18 +66,23 @@ void	five_elems(t_list *sa, t_list *sb)
 	push(sa, sb);
 	push(sa, sb);
 	three_elems(sa);
-	if (sb->prev->nb > sa->prev->nb)
-		push(sb, sa);
-	else
+	if (sb->next->nb < sa->prev->nb)
 	{
-		if (sb->next->nb < sa->prev->nb)
-		{
-			swap(sb);
-			push(sb, sa);
-		}
-		else
-			push(sb, sa);
+		swap(sb);
+		push(sb, sa);
 	}
-	push(sa, sb);
-	if ()
+	else
+		push(sb, sa);
+	push(sb, sa);
+	if (sa->prev->nb < sa->next->nb)
+		rotate(sa);
+	if (sa->prev->nb < sa->next->next->nb)
+	{
+		reverse_rotate(sa);
+		swap(sa);
+		rotate(sa);
+		rotate(sa);
+	}
+	if (sa->prev->nb < sa->prev->prev->nb)
+		swap(sa);
 }
