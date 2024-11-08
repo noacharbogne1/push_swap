@@ -6,7 +6,7 @@
 /*   By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 14:42:14 by ncharbog          #+#    #+#             */
-/*   Updated: 2024/11/07 18:03:25 by ncharbog         ###   ########.fr       */
+/*   Updated: 2024/11/08 10:19:27 by ncharbog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,6 @@ void	four_elems(t_list *sa, t_list *sb)
 	push(sb, sa);
 	if (sa->prev->nb < sa->next->nb)
 		rotate(sa);
-	if (sa->prev->nb < sa->prev->prev->nb)
-		swap(sa);
 	if (sa->prev->nb < sa->next->next->nb)
 	{
 		reverse_rotate(sa);
@@ -57,4 +55,11 @@ void	four_elems(t_list *sa, t_list *sb)
 		rotate(sa);
 		rotate(sa);
 	}
+	if (sa->prev->nb < sa->prev->prev->nb)
+		swap(sa);
+}
+
+void	five_elems(t_list *sa, t_list *sb)
+{
+	
 }
