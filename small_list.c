@@ -6,7 +6,7 @@
 /*   By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 14:42:14 by ncharbog          #+#    #+#             */
-/*   Updated: 2024/11/08 10:19:27 by ncharbog         ###   ########.fr       */
+/*   Updated: 2024/11/08 11:31:29 by ncharbog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,5 +61,21 @@ void	four_elems(t_list *sa, t_list *sb)
 
 void	five_elems(t_list *sa, t_list *sb)
 {
-	
+	push(sa, sb);
+	push(sa, sb);
+	three_elems(sa);
+	if (sb->prev->nb > sa->prev->nb)
+		push(sb, sa);
+	else
+	{
+		if (sb->next->nb < sa->prev->nb)
+		{
+			swap(sb);
+			push(sb, sa);
+		}
+		else
+			push(sb, sa);
+	}
+	push(sa, sb);
+	if ()
 }
