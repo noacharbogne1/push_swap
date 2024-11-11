@@ -1,0 +1,4 @@
+1) on regarde si le nombre de rotations a effectuer correspond aux cas identifiés (rarb, rrarrb, rrarb, rarrb). si le nombre calculé correspond à
+un des types de rotation, on effectue la rotation en question, sinon on passe au noeud suivant
+2) pour calculer le nombre de rotations, une fonction calcule chaque cas et renvoie le i le plus petit (nombre de rotations le moins important)
+3) chaque cas calcule le nombre de rotations nécessaires
