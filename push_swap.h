@@ -6,7 +6,7 @@
 /*   By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 10:03:39 by ncharbog          #+#    #+#             */
-/*   Updated: 2024/11/08 16:30:31 by ncharbog         ###   ########.fr       */
+/*   Updated: 2024/11/12 10:14:31 by ncharbog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,12 @@ void	del_node(t_list *element);
 void	three_elems(t_list *root);
 void	four_elems(t_list *sa, t_list *sb);
 void	five_elems(t_list *sa, t_list *sb);
+int		positioning_sb(int nb, t_list *sb, int rotation);
+void	sort_list(t_list *sa, t_list *sb);
+int 	find_combination(t_list *sa, t_list *sb);
+int		combination_rarb(int nb, t_list *sa, t_list *sb);
+int		combination_rrarrb(int nb, t_list *sa, t_list *sb);
+int		combination_rrarb(int nb, t_list *sa, t_list *sb);
+int		combination_rarrb(int nb, t_list *sa, t_list *sb);
 
 #endif

@@ -3,13 +3,114 @@
 /*                                                        :::      ::::::::   */
 /*   combinations.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: noacharbogne <noacharbogne@student.42.f    +#+  +:+       +#+        */
+/*   By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 11:25:47 by noacharbogn       #+#    #+#             */
-/*   Updated: 2024/11/11 11:26:16 by noacharbogn      ###   ########.fr       */
+/*   Updated: 2024/11/12 10:20:03 by ncharbog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int find_combination
+int find_combination(t_list *sa, t_list *sb)
+{
+	t_list	*tmp;
+	int		i;
+
+	tmp = sa->next;
+	i = combination_rarb(tmp->nb, sa, sb);
+	while (tmp)
+	{
+		if (i > combination_rarb(tmp->nb, sa, sb))
+			i = combination_rarb(tmp->nb, sa, sb);
+		if (i > combination_rrarrb(tmp->nb, sa, sb))
+			i = combination_rrarrb(tmp->nb, sa, sb);
+		if (i > combination_rrarb(tmp->nb, sa, sb))
+			i = combination_rrarb(tmp->nb, sa, sb);
+		if (i > combination_rarrb(tmp->nb, sa, sb))
+			i = combination_rarrb(tmp->nb, sa, sb);
+		tmp = tmp->next;
+	}
+	return (i);
+}
+
+int	combination_rarb(int nb, t_list *sa, t_list *sb)
+{
+	t_list	*tmp;
+	int		i;
+	int		i_sb;
+
+	i_sb = positioning_sb(nb, sb, 1);
+	i = 0;
+	tmp = sa->prev;
+	while (tmp->nb != nb)
+	{
+		i++;
+		tmp = tmp->prev;
+	}
+	if (i < i_sb)
+		i = i + (i_sb - i);
+	if (i > i_sb)
+		i = i_sb + (i - i_sb);
+	return (i);
+}
+int	combination_rrarrb(int nb, t_list *sa, t_list *sb)
+{
+	t_list	*tmp;
+	int		i;
+	int		i_sb;
+
+	i_sb = positioning_sb(nb, sb, 2);
+	i = 0;
+	tmp = sa;
+	while (tmp->nb != nb)
+	{
+		i++;
+		tmp = tmp->next;
+	}
+	if (i < i_sb)
+		i = i + (i_sb - i);
+	if (i > i_sb)
+		i = i_sb + (i - i_sb);
+	return (i);
+}
+int	combination_rrarb(int nb, t_list *sa, t_list *sb)
+{
+	t_list	*tmp;
+	int		i;
+	int		i_sb;
+
+	i_sb = positioning_sb(nb, sb, 1);
+	i = 0;
+	tmp = sa;
+	while (tmp->nb != nb)
+	{
+		i++;
+		tmp = tmp->next;
+	}
+	if (i < i_sb)
+		i = i + (i_sb - i);
+	if (i > i_sb)
+		i = i_sb + (i - i_sb);
+	return (i);
+}
+int	combination_rarrb(int nb, t_list *sa, t_list *sb)
+{
+	t_list	*tmp;
+	int		i;
+	int		i_sb;
+
+	i_sb = positioning_sb(nb, sb, 2);
+	i = 0;
+	tmp = sa->prev;
+	while (tmp->nb != nb)
+	{
+		i++;
+		tmp = tmp->prev;
+	}
+	if (i < i_sb)
+		i = i + (i_sb - i);
+	if (i > i_sb)
+		i = i_sb + (i - i_sb);
+	return (i);
+}

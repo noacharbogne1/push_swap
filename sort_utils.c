@@ -1,43 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   big_list.c                                         :+:      :+:    :+:   */
+/*   sort_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/11 10:31:11 by noacharbogn       #+#    #+#             */
-/*   Updated: 2024/11/12 10:25:57 by ncharbog         ###   ########.fr       */
+/*   Created: 2024/11/12 09:21:34 by ncharbog          #+#    #+#             */
+/*   Updated: 2024/11/12 10:20:15 by ncharbog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sort_list(t_list *sa, t_list *sb)
+int	positioning_sb(int nb, t_list *sb, int rotation)
 {
 	t_list	*tmp;
 	int		i;
 
 	i = 0;
-	push(sa, sb);
-	push(sa, sb);
-	if (len_lst(sa) > 3)
+	tmp = sb;
+	if (rotation == 1)
 	{
-		tmp = sa;
-		i = find_combination(sa, sb);
-		while (i >= 0)
+		tmp = tmp->prev;
+		while (tmp)
 		{
-			if (i == combination_rarb(tmp->nb, sa, sb))
-				i = 1;
-			if (i == combination_rrarrb(tmp->nb, sa, sb))
-				i = 1;
-			if (i == combination_rrarb(tmp->nb, sa, sb))
-				i = 1;
-			if (i == combination_rarrb(tmp->nb, sa, sb))
-				i = 1;
-			else
-				tmp = tmp->next;
+			if (tmp->next->nb > nb && tmp->prev->nb < nb)
+				break;
+			i++;
+			tmp = tmp->prev;
 		}
 	}
-	else
-		three_elems(sa);
+	else if (rotation == 2)
+	{
+		while (tmp)
+		{
+			if (tmp->next->nb > nb && tmp->prev->nb < nb)
+				break;
+			i++;
+			tmp = tmp->next;
+		}
+	}
+	return (i);
 }
