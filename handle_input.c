@@ -6,7 +6,7 @@
 /*   By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 13:56:32 by ncharbog          #+#    #+#             */
-/*   Updated: 2024/11/12 10:15:45 by ncharbog         ###   ########.fr       */
+/*   Updated: 2024/11/12 15:39:48 by ncharbog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,8 +142,10 @@ int	main(int argc, char **argv)
 			five_elems(sa, sb);
 		if (len_lst(sa) > 5)
 			sort_list(sa, sb);
-		print_list(sa);
+		//print_list(sa);
+		print_list(sb);
 		ft_free(&sa);
+		ft_free(&sb);
 	}
 	write(1, "Error\n", 6);
 	return (0);

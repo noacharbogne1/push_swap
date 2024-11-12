@@ -6,7 +6,7 @@
 /*   By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 11:25:47 by noacharbogn       #+#    #+#             */
-/*   Updated: 2024/11/12 10:20:03 by ncharbog         ###   ########.fr       */
+/*   Updated: 2024/11/12 15:29:21 by ncharbog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ int find_combination(t_list *sa, t_list *sb)
 	t_list	*tmp;
 	int		i;
 
-	tmp = sa->next;
+	tmp = sa->prev;
 	i = combination_rarb(tmp->nb, sa, sb);
-	while (tmp)
+	while (tmp != sa)
 	{
 		if (i > combination_rarb(tmp->nb, sa, sb))
 			i = combination_rarb(tmp->nb, sa, sb);
@@ -29,7 +29,7 @@ int find_combination(t_list *sa, t_list *sb)
 			i = combination_rrarb(tmp->nb, sa, sb);
 		if (i > combination_rarrb(tmp->nb, sa, sb))
 			i = combination_rarrb(tmp->nb, sa, sb);
-		tmp = tmp->next;
+		tmp = tmp->prev;
 	}
 	return (i);
 }
@@ -50,7 +50,7 @@ int	combination_rarb(int nb, t_list *sa, t_list *sb)
 	}
 	if (i < i_sb)
 		i = i + (i_sb - i);
-	if (i > i_sb)
+	else if (i > i_sb)
 		i = i_sb + (i - i_sb);
 	return (i);
 }
@@ -88,10 +88,7 @@ int	combination_rrarb(int nb, t_list *sa, t_list *sb)
 		i++;
 		tmp = tmp->next;
 	}
-	if (i < i_sb)
-		i = i + (i_sb - i);
-	if (i > i_sb)
-		i = i_sb + (i - i_sb);
+	i = i + i_sb;
 	return (i);
 }
 int	combination_rarrb(int nb, t_list *sa, t_list *sb)
@@ -108,9 +105,6 @@ int	combination_rarrb(int nb, t_list *sa, t_list *sb)
 		i++;
 		tmp = tmp->prev;
 	}
-	if (i < i_sb)
-		i = i + (i_sb - i);
-	if (i > i_sb)
-		i = i_sb + (i - i_sb);
+	i = i + i_sb;
 	return (i);
 }

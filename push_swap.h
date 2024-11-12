@@ -6,7 +6,7 @@
 /*   By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 10:03:39 by ncharbog          #+#    #+#             */
-/*   Updated: 2024/11/12 10:14:31 by ncharbog         ###   ########.fr       */
+/*   Updated: 2024/11/12 16:27:05 by ncharbog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,5 +46,10 @@ int		combination_rarb(int nb, t_list *sa, t_list *sb);
 int		combination_rrarrb(int nb, t_list *sa, t_list *sb);
 int		combination_rrarb(int nb, t_list *sa, t_list *sb);
 int		combination_rarrb(int nb, t_list *sa, t_list *sb);
+int		exec_rarb(t_list *sa, t_list *sb, int nb, int count);
+int		exec_rrarrb(t_list *sa, t_list *sb, int nb, int count);
+int		exec_rrarb(t_list *sa, t_list *sb, int nb, int count);
+int		exec_rarrb(t_list *sa, t_list *sb, int nb, int count);
+int		min(t_list *root);
 
 #endif
