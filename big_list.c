@@ -6,7 +6,7 @@
 /*   By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 10:31:11 by noacharbogn       #+#    #+#             */
-/*   Updated: 2024/11/12 15:32:34 by ncharbog         ###   ########.fr       */
+/*   Updated: 2024/11/13 16:11:04 by ncharbog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ void	sort_list(t_list *sa, t_list *sb)
 	i = 0;
 	push(sa, sb);
 	push(sa, sb);
+	if (!check_order(sb))
+		swap(sb);
 	while (len_lst(sa) > 3)
 	{
 		tmp = sa->prev;

@@ -6,7 +6,7 @@
 /*   By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 09:21:34 by ncharbog          #+#    #+#             */
-/*   Updated: 2024/11/12 17:43:51 by ncharbog         ###   ########.fr       */
+/*   Updated: 2024/11/13 16:37:56 by ncharbog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,26 @@
 int	positioning_sb(int nb, t_list *sb, int rotation)
 {
 	t_list	*tmp;
+	t_list	*prev;
+	t_list	*next;
 	int		i;
 
 	i = 0;
-	tmp = sb->next;
+	tmp = sb;
 	if (rotation == 1)
 	{
+		tmp = sb->prev;
 		while (tmp != sb)
 		{
-			if (tmp->nb == min(sb) && nb < tmp->prev->nb)
+			prev = tmp->prev;
+			next = tmp->next;
+			if (prev == sb)
+				prev = sb->prev;
+			if (next == sb)
+				next = sb->next;
+			if (tmp->nb > nb && prev->nb < nb)
 				break;
-			if (tmp->nb > nb && tmp->next->nb < nb)
+			if (tmp->nb < nb && prev->nb < nb)
 				break;
 			i++;
 			tmp = tmp->prev;
@@ -35,29 +44,19 @@ int	positioning_sb(int nb, t_list *sb, int rotation)
 	{
 		while (tmp != sb)
 		{
-			if (tmp->prev->nb == min(sb) && nb < tmp->prev->nb)
+			prev = tmp->prev;
+			next = tmp->next;
+			if (prev == sb)
+				prev = sb->prev;
+			if (next == sb)
+				next = sb->next;
+			if (tmp->nb > nb && next->nb < nb)
 				break;
-			if (tmp->nb > nb && tmp->next->nb < nb)
+			if (tmp->nb < nb && next->nb < nb)
 				break;
 			i++;
 			tmp = tmp->next;
 		}
 	}
 	return (i);
-}
-
-int	min(t_list *root)
-{
-	t_list	*tmp;
-	int		min;
-
-	tmp = root->next;
-	min = 2147483647;
-	while (tmp != root)
-	{
-		if (min > tmp->nb)
-			min = tmp->nb;
-		tmp = tmp->next;
-	}
-	return (min);
 }
