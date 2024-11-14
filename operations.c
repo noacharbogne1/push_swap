@@ -6,7 +6,7 @@
 /*   By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 10:20:05 by noacharbogn       #+#    #+#             */
-/*   Updated: 2024/11/08 10:00:21 by ncharbog         ###   ########.fr       */
+/*   Updated: 2024/11/14 09:10:40 by ncharbog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,19 +81,3 @@ void	reverse_rotate(t_list *root)
 	first->prev = last;
 }
 
-int	len_lst(t_list *root)
-{
-	int		len;
-	t_list	*tmp;
-
-	len = 0;
-	tmp = root;
-	if (tmp->next == root)
-		return (1);
-	while (tmp->next != root)
-	{
-		tmp = tmp->next;
-		len++;
-	}
-	return (len);
-}

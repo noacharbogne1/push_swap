@@ -6,7 +6,7 @@
 /*   By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 11:25:47 by noacharbogn       #+#    #+#             */
-/*   Updated: 2024/11/12 15:29:21 by ncharbog         ###   ########.fr       */
+/*   Updated: 2024/11/14 11:18:30 by ncharbog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,18 +36,11 @@ int find_combination(t_list *sa, t_list *sb)
 
 int	combination_rarb(int nb, t_list *sa, t_list *sb)
 {
-	t_list	*tmp;
 	int		i;
 	int		i_sb;
 
-	i_sb = positioning_sb(nb, sb, 1);
-	i = 0;
-	tmp = sa->prev;
-	while (tmp->nb != nb)
-	{
-		i++;
-		tmp = tmp->prev;
-	}
+	i_sb = positioning_sb(nb, 1, sb);
+	i = find_place(sa, nb, 1);
 	if (i < i_sb)
 		i = i + (i_sb - i);
 	else if (i > i_sb)
@@ -56,18 +49,11 @@ int	combination_rarb(int nb, t_list *sa, t_list *sb)
 }
 int	combination_rrarrb(int nb, t_list *sa, t_list *sb)
 {
-	t_list	*tmp;
 	int		i;
 	int		i_sb;
 
-	i_sb = positioning_sb(nb, sb, 2);
-	i = 0;
-	tmp = sa;
-	while (tmp->nb != nb)
-	{
-		i++;
-		tmp = tmp->next;
-	}
+	i_sb = positioning_sb(nb, 2, sb);
+	i = find_place(sa, nb ,2);
 	if (i < i_sb)
 		i = i + (i_sb - i);
 	if (i > i_sb)
@@ -76,35 +62,21 @@ int	combination_rrarrb(int nb, t_list *sa, t_list *sb)
 }
 int	combination_rrarb(int nb, t_list *sa, t_list *sb)
 {
-	t_list	*tmp;
 	int		i;
 	int		i_sb;
 
-	i_sb = positioning_sb(nb, sb, 1);
-	i = 0;
-	tmp = sa;
-	while (tmp->nb != nb)
-	{
-		i++;
-		tmp = tmp->next;
-	}
+	i_sb = positioning_sb(nb, 1, sb);
+	i = find_place(sa, nb, 2);
 	i = i + i_sb;
 	return (i);
 }
 int	combination_rarrb(int nb, t_list *sa, t_list *sb)
 {
-	t_list	*tmp;
 	int		i;
 	int		i_sb;
 
-	i_sb = positioning_sb(nb, sb, 2);
-	i = 0;
-	tmp = sa->prev;
-	while (tmp->nb != nb)
-	{
-		i++;
-		tmp = tmp->prev;
-	}
+	i_sb = positioning_sb(nb, 2, sb);
+	i = find_place(sa, nb, 1);
 	i = i + i_sb;
 	return (i);
 }
