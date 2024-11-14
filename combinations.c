@@ -6,7 +6,7 @@
 /*   By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 11:25:47 by noacharbogn       #+#    #+#             */
-/*   Updated: 2024/11/14 11:18:30 by ncharbog         ###   ########.fr       */
+/*   Updated: 2024/11/14 15:17:30 by ncharbog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	combination_rarb(int nb, t_list *sa, t_list *sb)
 	int		i;
 	int		i_sb;
 
-	i_sb = positioning_sb(nb, 1, sb);
+	i_sb = len_lst(sb) - positioning_sb(nb, 1, sb);
 	i = find_place(sa, nb, 1);
 	if (i < i_sb)
 		i = i + (i_sb - i);
@@ -65,7 +65,7 @@ int	combination_rrarb(int nb, t_list *sa, t_list *sb)
 	int		i;
 	int		i_sb;
 
-	i_sb = positioning_sb(nb, 1, sb);
+	i_sb = len_lst(sb) - positioning_sb(nb, 1, sb);
 	i = find_place(sa, nb, 2);
 	i = i + i_sb;
 	return (i);

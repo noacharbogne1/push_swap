@@ -6,7 +6,7 @@
 /*   By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 09:21:34 by ncharbog          #+#    #+#             */
-/*   Updated: 2024/11/14 10:31:40 by ncharbog         ###   ########.fr       */
+/*   Updated: 2024/11/14 15:28:06 by ncharbog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 int	positioning_sb(int nb, int rotation, t_list *sb)
 {
 	t_list	*tmp;
+	t_list	*prev;
 	t_list	*next;
 	int		i;
 
@@ -22,9 +23,7 @@ int	positioning_sb(int nb, int rotation, t_list *sb)
 	tmp = sb->next;
 	//if (nb > tmp->nb && nb < sb->prev->nb)
 		//i = 0;
-	if (nb < min(sb))
-		i = find_place(sb, min(sb), rotation);
-	else if (nb > max(sb))
+	if (nb < min(sb) || nb > max(sb))
 		i = find_place(sb, max(sb), rotation);
 	else
 	{
@@ -32,8 +31,8 @@ int	positioning_sb(int nb, int rotation, t_list *sb)
 		{
 			next = tmp->next;
 			if (next == sb)
-				next = sb->next;
-			if (tmp->nb > nb && next->nb < nb)
+					next = sb->next;
+			if (nb > tmp->nb && nb < next->nb)
 				break;
 			i++;
 			tmp = tmp->next;
@@ -47,7 +46,7 @@ int	find_place(t_list *root, int nb, int rotation)
 	t_list	*tmp;
 	int		i;
 
-	tmp = root;
+	tmp = root->next;
 	i = 0;
 	if (rotation == 1)
 	{
