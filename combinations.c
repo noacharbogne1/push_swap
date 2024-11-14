@@ -6,7 +6,7 @@
 /*   By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 11:25:47 by noacharbogn       #+#    #+#             */
-/*   Updated: 2024/11/14 15:17:30 by ncharbog         ###   ########.fr       */
+/*   Updated: 2024/11/14 17:31:57 by ncharbog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,12 @@ int	combination_rarb(int nb, t_list *sa, t_list *sb)
 	int		i;
 	int		i_sb;
 
-	i_sb = len_lst(sb) - positioning_sb(nb, 1, sb);
-	i = find_place(sa, nb, 1);
+	i_sb = positioning_sb(nb, sb);
+	if (i_sb == len_lst(sb) - 1)
+		i_sb = 0;
+	if (i_sb != 0)
+		i_sb = len_lst(sb) - i_sb;
+	i = len_lst(sa) - find_place(sa, nb) - 1;
 	if (i < i_sb)
 		i = i + (i_sb - i);
 	else if (i > i_sb)
@@ -52,21 +56,26 @@ int	combination_rrarrb(int nb, t_list *sa, t_list *sb)
 	int		i;
 	int		i_sb;
 
-	i_sb = positioning_sb(nb, 2, sb);
-	i = find_place(sa, nb ,2);
+	i_sb = positioning_sb(nb, sb);
+	i = find_place(sa, nb);
 	if (i < i_sb)
 		i = i + (i_sb - i);
-	if (i > i_sb)
+	else if (i > i_sb)
 		i = i_sb + (i - i_sb);
 	return (i);
 }
+
 int	combination_rrarb(int nb, t_list *sa, t_list *sb)
 {
 	int		i;
 	int		i_sb;
 
-	i_sb = len_lst(sb) - positioning_sb(nb, 1, sb);
-	i = find_place(sa, nb, 2);
+	i_sb = positioning_sb(nb, sb);
+	if (i_sb == len_lst(sb) - 1)
+		i_sb = 0;
+	if (i_sb != 0)
+		i_sb = len_lst(sb) - i_sb - 1;
+	i = find_place(sa, nb);
 	i = i + i_sb;
 	return (i);
 }
@@ -75,8 +84,8 @@ int	combination_rarrb(int nb, t_list *sa, t_list *sb)
 	int		i;
 	int		i_sb;
 
-	i_sb = positioning_sb(nb, 2, sb);
-	i = find_place(sa, nb, 1);
+	i_sb = positioning_sb(nb, sb);
+	i = len_lst(sa) - find_place(sa, nb) - 1;
 	i = i + i_sb;
 	return (i);
 }

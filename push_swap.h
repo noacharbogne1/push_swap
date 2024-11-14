@@ -6,7 +6,7 @@
 /*   By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 10:03:39 by ncharbog          #+#    #+#             */
-/*   Updated: 2024/11/14 11:28:07 by ncharbog         ###   ########.fr       */
+/*   Updated: 2024/11/14 17:49:53 by ncharbog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,8 @@ int		exec_rrarb(t_list *sa, t_list *sb, int nb, int count);
 int		exec_rarrb(t_list *sa, t_list *sb, int nb, int count);
 int		min(t_list *root);
 int		max(t_list *root);
-int		find_place(t_list *root, int nb, int rotation);
-int		positioning_sb(int nb, int rotation, t_list *sb);
+int		find_place(t_list *root, int nb);
+int		positioning_sb(int nb, t_list *sb);
+void print_list(t_list *root);
 
 #endif

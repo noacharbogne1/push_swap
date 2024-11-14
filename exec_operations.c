@@ -6,7 +6,7 @@
 /*   By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 14:52:05 by ncharbog          #+#    #+#             */
-/*   Updated: 2024/11/14 13:28:51 by ncharbog         ###   ########.fr       */
+/*   Updated: 2024/11/14 16:10:49 by ncharbog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	exec_rarb(t_list *sa, t_list *sb, int nb, int count)
 	int	i_sb;
 	int	i_sa;
 
-	i_sb = positioning_sb(nb, 1, sb);
+	i_sb = len_lst(sb) - positioning_sb(nb, sb) - 1;
 	i_sa = count - i_sb;
 	while (i_sb > 0)
 	{
@@ -37,7 +37,7 @@ int	exec_rrarrb(t_list *sa, t_list *sb, int nb, int count)
 	int	i_sb;
 	int	i_sa;
 
-	i_sb = positioning_sb(nb, 2, sb);
+	i_sb = positioning_sb(nb, sb);
 	i_sa = count - i_sb;
 	while (i_sb > 0)
 	{
@@ -57,7 +57,7 @@ int	exec_rrarb(t_list *sa, t_list *sb, int nb, int count)
 	int	i_sb;
 	int	i_sa;
 
-	i_sb = positioning_sb(nb, 1, sb);
+	i_sb = len_lst(sb) - positioning_sb(nb, sb) - 1;
 	i_sa = count - i_sb;
 	while (i_sb > 0)
 	{
@@ -77,7 +77,7 @@ int	exec_rarrb(t_list *sa, t_list *sb, int nb, int count)
 	int	i_sb;
 	int	i_sa;
 
-	i_sb = positioning_sb(nb, 2, sb);
+	i_sb = positioning_sb(nb, sb);
 	i_sa = count - i_sb;
 	while (i_sb > 0)
 	{

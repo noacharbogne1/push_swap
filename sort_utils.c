@@ -6,13 +6,13 @@
 /*   By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 09:21:34 by ncharbog          #+#    #+#             */
-/*   Updated: 2024/11/14 15:28:06 by ncharbog         ###   ########.fr       */
+/*   Updated: 2024/11/14 17:52:40 by ncharbog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	positioning_sb(int nb, int rotation, t_list *sb)
+int	positioning_sb(int nb, t_list *sb)
 {
 	t_list	*tmp;
 	t_list	*prev;
@@ -21,10 +21,8 @@ int	positioning_sb(int nb, int rotation, t_list *sb)
 
 	i = 1;
 	tmp = sb->next;
-	//if (nb > tmp->nb && nb < sb->prev->nb)
-		//i = 0;
 	if (nb < min(sb) || nb > max(sb))
-		i = find_place(sb, max(sb), rotation);
+		i = find_place(sb, max(sb)) - 1;
 	else
 	{
 		while (tmp != sb)
@@ -41,29 +39,17 @@ int	positioning_sb(int nb, int rotation, t_list *sb)
 	return (i);
 }
 
-int	find_place(t_list *root, int nb, int rotation)
+int	find_place(t_list *root, int nb)
 {
 	t_list	*tmp;
 	int		i;
 
+	i = 1;
 	tmp = root->next;
-	i = 0;
-	if (rotation == 1)
+	while (tmp->nb != nb)
 	{
-		tmp = root->prev;
-		while (tmp->nb != nb)
-		{
-			i++;
-			tmp = tmp->prev;
-		}
-	}
-	if (rotation == 2)
-	{
-		while (tmp->nb != nb)
-		{
-			i++;
-			tmp = tmp->next;
-		}
+		i++;
+		tmp = tmp->next;
 	}
 	return (i);
 }
