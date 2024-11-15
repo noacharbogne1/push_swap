@@ -6,7 +6,7 @@
 /*   By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 10:20:05 by noacharbogn       #+#    #+#             */
-/*   Updated: 2024/11/14 09:10:40 by ncharbog         ###   ########.fr       */
+/*   Updated: 2024/11/15 14:38:24 by ncharbog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	swap(t_list *root)
 	t_list	*head;
 	t_list	*prev;
 	t_list	*prev_prev;
-	int		tmp;
+	long	tmp;
 
 	head = root->prev;
 	prev = head->prev;
@@ -37,7 +37,7 @@ void	swap(t_list *root)
 void	push(t_list *from, t_list *to)
 {
 	t_list	*top_from;
-	int		content;
+	long	content;
 
 	if (!from || !to)
 		return ;
@@ -80,4 +80,3 @@ void	reverse_rotate(t_list *root)
 	last->next = first;
 	first->prev = last;
 }
-

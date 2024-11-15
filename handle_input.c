@@ -6,13 +6,13 @@
 /*   By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 13:56:32 by ncharbog          #+#    #+#             */
-/*   Updated: 2024/11/15 10:00:39 by ncharbog         ###   ########.fr       */
+/*   Updated: 2024/11/15 16:14:02 by ncharbog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_count(int n)
+int	ft_count(long n)
 {
 	size_t		count;
 
@@ -30,16 +30,16 @@ int	ft_count(int n)
 	return (count);
 }
 
-int	ft_atoi(char *nptr)
+long	ft_atol(char *nptr)
 {
-	int	i;
-	int	n;
-	int	result;
+	int		i;
+	int		n;
+	long	result;
 
 	i = 0;
 	n = 0;
 	result = 0;
-	if (nptr[i] == ' ' || (nptr[i] >= 9 && nptr[i] <= 13))
+	while (nptr[i] == ' ' || (nptr[i] >= 9 && nptr[i] <= 13))
 		i++;
 	if (nptr[i] == '-' || nptr[i] == '+')
 	{
@@ -57,7 +57,7 @@ int	ft_atoi(char *nptr)
 	return (result);
 }
 
-int	ft_check_dup(int result, t_list *root)
+int	ft_check_dup(long result, t_list *root)
 {
 	t_list	*tmp;
 
@@ -72,28 +72,39 @@ int	ft_check_dup(int result, t_list *root)
 	return (0);
 }
 
-int	ft_across(char *str, t_list *root)
+long	ft_across(char *str, t_list *root)
 {
-	int	i;
-	int	result;
+	int		i;
+	long	result;
 
 	i = 0;
+	result = 0;
 	while (str[i])
 	{
-		result = ft_atoi(&str[i]);
-		if (!result)
+		if (str[i] == '0')
+		{
+			i += ft_iszero(&str[i], root);
+			if (i == -1)
+				return (0);
+			else
+				result = i;
+		}
+		while (str[i] && str[i] == ' ')
+			i++;
+		if (!str[i])
+			break;
+		result = ft_atol(&str[i]);
+		if (!result || result > 2147483647 || result < -2147483648 || ft_count(result) > 12)
 			return (0);
 		if (ft_check_dup(result, root))
 			return (0);
 		add_node(root, result);
 		i += ft_count(result);
-		if (str[i] == ' ')
-			i++;
 	}
 	return (result);
 }
 
-#include <stdio.h>
+// À RETIRER //
 
 void print_list(t_list *root)
 {
@@ -102,7 +113,7 @@ void print_list(t_list *root)
     t_list *current = root->next;
     while (current)
     {
-       	printf("\n%d", current->nb);
+       	printf("\n%ld", current->nb);
 		current = current->next;
 		if (current == root)
 			return ;
@@ -134,16 +145,16 @@ int	main(int argc, char **argv)
 			return (0);
 		if (len_lst(sa) == 2)
 			swap(sa);
-		if (len_lst(sa) == 3)
+		else if (len_lst(sa) == 3)
 			three_elems(sa);
-		if (len_lst(sa) == 4)
+		else if (len_lst(sa) == 4)
 			four_elems(sa, sb);
-		if (len_lst(sa) == 5)
+		else if (len_lst(sa) == 5)
 			five_elems(sa, sb);
-		if (len_lst(sa) > 5)
+		else if (len_lst(sa) > 5)
 			sort_list(sa, sb);
-		//print_list(sa);
-		print_list(sb);
+		print_list(sa);
+		//print_list(sb);
 		ft_free(&sa);
 		ft_free(&sb);
 	}

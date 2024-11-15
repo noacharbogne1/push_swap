@@ -6,7 +6,7 @@
 /*   By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 11:25:47 by noacharbogn       #+#    #+#             */
-/*   Updated: 2024/11/15 12:19:04 by ncharbog         ###   ########.fr       */
+/*   Updated: 2024/11/15 14:37:53 by ncharbog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int find_combination(t_list *sa, t_list *sb)
 	return (i);
 }
 
-int	combination_rarb(int nb, t_list *sa, t_list *sb)
+int	combination_rarb(long nb, t_list *sa, t_list *sb)
 {
 	int		i;
 	int		i_sb;
@@ -53,7 +53,7 @@ int	combination_rarb(int nb, t_list *sa, t_list *sb)
 		i = i_sb + (i - i_sb);
 	return (i);
 }
-int	combination_rrarrb(int nb, t_list *sa, t_list *sb)
+int	combination_rrarrb(long nb, t_list *sa, t_list *sb)
 {
 	int		i;
 	int		i_sb;
@@ -67,7 +67,7 @@ int	combination_rrarrb(int nb, t_list *sa, t_list *sb)
 	return (i);
 }
 
-int	combination_rrarb(int nb, t_list *sa, t_list *sb)
+int	combination_rrarb(long nb, t_list *sa, t_list *sb)
 {
 	int		i;
 	int		i_sb;
@@ -81,7 +81,7 @@ int	combination_rrarb(int nb, t_list *sa, t_list *sb)
 	i = i + i_sb;
 	return (i);
 }
-int	combination_rarrb(int nb, t_list *sa, t_list *sb)
+int	combination_rarrb(long nb, t_list *sa, t_list *sb)
 {
 	int		i;
 	int		i_sb;

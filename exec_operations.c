@@ -6,13 +6,13 @@
 /*   By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 14:52:05 by ncharbog          #+#    #+#             */
-/*   Updated: 2024/11/15 12:51:46 by ncharbog         ###   ########.fr       */
+/*   Updated: 2024/11/15 14:37:31 by ncharbog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	exec_rarb(t_list *sa, t_list *sb, int nb)
+int	exec_rarb(t_list *sa, t_list *sb, long nb)
 {
 	int	i_sb;
 	int	i_sa;
@@ -37,7 +37,7 @@ int	exec_rarb(t_list *sa, t_list *sb, int nb)
 	return (-1);
 }
 
-int	exec_rrarrb(t_list *sa, t_list *sb, int nb)
+int	exec_rrarrb(t_list *sa, t_list *sb, long nb)
 {
 	int	i_sb;
 	int	i_sa;
@@ -60,7 +60,7 @@ int	exec_rrarrb(t_list *sa, t_list *sb, int nb)
 	return (-1);
 }
 
-int	exec_rrarb(t_list *sa, t_list *sb, int nb)
+int	exec_rrarb(t_list *sa, t_list *sb, long nb)
 {
 	int	i_sb;
 	int	i_sa;
@@ -87,7 +87,7 @@ int	exec_rrarb(t_list *sa, t_list *sb, int nb)
 	return (-1);
 }
 
-int	exec_rarrb(t_list *sa, t_list *sb, int nb)
+int	exec_rarrb(t_list *sa, t_list *sb, long nb)
 {
 	int	i_sb;
 	int	i_sa;

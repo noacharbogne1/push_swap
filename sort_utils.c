@@ -6,13 +6,13 @@
 /*   By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 09:21:34 by ncharbog          #+#    #+#             */
-/*   Updated: 2024/11/15 10:27:38 by ncharbog         ###   ########.fr       */
+/*   Updated: 2024/11/15 14:38:44 by ncharbog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	positioning_sb(int nb, t_list *sb)
+int	positioning_sb(long nb, t_list *sb)
 {
 	t_list	*tmp;
 	t_list	*prev;
@@ -39,7 +39,7 @@ int	positioning_sb(int nb, t_list *sb)
 	return (i);
 }
 
-int	find_place(t_list *root, int nb)
+int	find_place(t_list *root, long nb)
 {
 	t_list	*tmp;
 	int		i;

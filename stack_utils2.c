@@ -6,7 +6,7 @@
 /*   By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 09:11:12 by ncharbog          #+#    #+#             */
-/*   Updated: 2024/11/14 10:23:53 by ncharbog         ###   ########.fr       */
+/*   Updated: 2024/11/15 15:52:14 by ncharbog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,12 @@ int	len_lst(t_list *root)
 	return (len);
 }
 
-int	min(t_list *root)
+long	min(t_list *root)
 {
 	t_list *tmp;
-	int		min;
+	long	min;
 
-	min = 2147483647;
+	min = 2147483648;
 	tmp = root->next;
 	while (tmp != root)
 	{
@@ -45,12 +45,12 @@ int	min(t_list *root)
 	return (min);
 }
 
-int max(t_list *root)
+long	max(t_list *root)
 {
 	t_list *tmp;
-	int		max;
+	long	max;
 
-	max = -2147483648;
+	max = -2147483649;
 	tmp = root->next;
 	while (tmp != root)
 	{
@@ -59,4 +59,29 @@ int max(t_list *root)
 		tmp = tmp->next;
 	}
 	return (max);
+}
+
+int	ft_iszero(char *str, t_list *root)
+{
+	int	i;
+	int	result;
+
+	i = 0;
+	result = 18;
+	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
+		i++;
+	if (str[i] == '-' || str[i] == '+')
+		i++;
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		result = result * 10 + (str[i] - '0');
+		i++;
+	}
+	if (result != 180 || ft_check_dup(0, root))
+		return (-1);
+	if (str[i] >= '0' && str[i] <= '9')
+		return (-1);
+	else
+		add_node(root, 0);
+	return (i);
 }

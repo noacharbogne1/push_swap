@@ -6,7 +6,7 @@
 /*   By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 10:03:39 by ncharbog          #+#    #+#             */
-/*   Updated: 2024/11/15 12:52:48 by ncharbog         ###   ########.fr       */
+/*   Updated: 2024/11/15 16:13:45 by ncharbog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,20 +16,22 @@
 # include <unistd.h>
 # include <stdlib.h>
 
+#include <stdio.h>
+
 typedef struct s_list
 {
-	int	nb;
+	long	nb;
 	struct	s_list	*prev;
 	struct	s_list	*next;
 }					t_list;
 
-int		ft_across(char *str, t_list *root);
-int		ft_atoi(char *nptr);
-int		ft_count(int n);
+long	ft_across(char *str, t_list *root);
+long	ft_atol(char *nptr);
+int		ft_count(long n);
 int		len_lst(t_list *root);
 int		check_order(t_list *root);
 void	ft_free(t_list **root);
-void	*add_node(t_list *root, int value);
+void	*add_node(t_list *root, long value);
 t_list	*create_list(void);
 void	push(t_list *from, t_list *to);
 void    swap(t_list *root);
@@ -41,18 +43,20 @@ void	four_elems(t_list *sa, t_list *sb);
 void	five_elems(t_list *sa, t_list *sb);
 void	sort_list(t_list *sa, t_list *sb);
 int 	find_combination(t_list *sa, t_list *sb);
-int		combination_rarb(int nb, t_list *sa, t_list *sb);
-int		combination_rrarrb(int nb, t_list *sa, t_list *sb);
-int		combination_rrarb(int nb, t_list *sa, t_list *sb);
-int		combination_rarrb(int nb, t_list *sa, t_list *sb);
-int		exec_rarb(t_list *sa, t_list *sb, int nb);
-int		exec_rrarrb(t_list *sa, t_list *sb, int nb);
-int		exec_rrarb(t_list *sa, t_list *sb, int nb);
-int		exec_rarrb(t_list *sa, t_list *sb, int nb);
-int		min(t_list *root);
-int		max(t_list *root);
-int		find_place(t_list *root, int nb);
-int		positioning_sb(int nb, t_list *sb);
-void print_list(t_list *root);
+int		combination_rarb(long nb, t_list *sa, t_list *sb);
+int		combination_rrarrb(long nb, t_list *sa, t_list *sb);
+int		combination_rrarb(long nb, t_list *sa, t_list *sb);
+int		combination_rarrb(long nb, t_list *sa, t_list *sb);
+int		exec_rarb(t_list *sa, t_list *sb, long nb);
+int		exec_rrarrb(t_list *sa, t_list *sb, long nb);
+int		exec_rrarb(t_list *sa, t_list *sb, long nb);
+int		exec_rarrb(t_list *sa, t_list *sb, long nb);
+long	min(t_list *root);
+long	max(t_list *root);
+int		find_place(t_list *root, long nb);
+int		positioning_sb(long nb, t_list *sb);
+void 	print_list(t_list *root);
+int		ft_iszero(char *str, t_list *root);
+int		ft_check_dup(long result, t_list *root);
 
 #endif
