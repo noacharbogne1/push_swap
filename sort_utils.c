@@ -6,7 +6,7 @@
 /*   By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 09:21:34 by ncharbog          #+#    #+#             */
-/*   Updated: 2024/11/14 17:52:40 by ncharbog         ###   ########.fr       */
+/*   Updated: 2024/11/15 10:27:38 by ncharbog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	positioning_sb(int nb, t_list *sb)
 	i = 1;
 	tmp = sb->next;
 	if (nb < min(sb) || nb > max(sb))
-		i = find_place(sb, max(sb)) - 1;
+		i = find_place(sb, max(sb));
 	else
 	{
 		while (tmp != sb)

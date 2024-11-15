@@ -6,7 +6,7 @@
 /*   By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 10:31:11 by noacharbogn       #+#    #+#             */
-/*   Updated: 2024/11/14 17:50:33 by ncharbog         ###   ########.fr       */
+/*   Updated: 2024/11/15 12:52:57 by ncharbog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,13 @@ void	sort_list(t_list *sa, t_list *sb)
 		while (i >= 0)
 		{
 			if (i == combination_rarb(tmp->nb, sa, sb))
-				i = exec_rarb(sa, sb, tmp->nb, i);
+				i = exec_rarb(sa, sb, tmp->nb);
 			else if (i == combination_rrarrb(tmp->nb, sa, sb))
-				i = exec_rrarrb(sa, sb, tmp->nb, i);
+				i = exec_rrarrb(sa, sb, tmp->nb);
 			else if (i == combination_rrarb(tmp->nb, sa, sb))
-				i = exec_rrarb(sa, sb, tmp->nb, i);
+				i = exec_rrarb(sa, sb, tmp->nb);
 			else if (i == combination_rarrb(tmp->nb, sa, sb))
-				i = exec_rarrb(sa, sb, tmp->nb, i);
+				i = exec_rarrb(sa, sb, tmp->nb);
 			else
 				tmp = tmp->prev;
 		}
