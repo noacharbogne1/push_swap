@@ -6,7 +6,7 @@
 /*   By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 10:31:11 by noacharbogn       #+#    #+#             */
-/*   Updated: 2024/11/15 16:36:56 by ncharbog         ###   ########.fr       */
+/*   Updated: 2024/11/15 16:52:18 by ncharbog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,15 +51,31 @@ void	place_in_a(t_list *sa, t_list *sb)
 
 	i = 0;
 	tmp = sb->prev;
-	while (tmp > sa->prev && tmp != sb)
-	{
-		push(sb, sa);
-		tmp = sb->prev
-	}
 	while (tmp != sb)
 	{
-		case_r()
-		case_rr
+		if (tmp > sa->prev)
+		{
+			push(sb, sa);
+			tmp = sb->prev
+		}
+		else
+		{
+			i = find_case(tmp->nb, sa);
+			if (i == case_r(tmp->nb, sa))
+				exec_case_r(tmp->nb, sa);
+			if (i == case_rr(tmp->nb, sa))
+				exec_case_r(tmp->nb, sa);
+		}
 		tmp = sb->prev;
 	}
+}
+
+int	find_case(long nb, t_list *root)
+{
+	int	i;
+
+	i = case_r(nb, root);
+	if (i > case_rr(nb, root))
+		i = case_rr(nb, root);
+	return (i);
 }
