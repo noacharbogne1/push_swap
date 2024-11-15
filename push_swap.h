@@ -6,7 +6,7 @@
 /*   By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 10:03:39 by ncharbog          #+#    #+#             */
-/*   Updated: 2024/11/15 16:13:45 by ncharbog         ###   ########.fr       */
+/*   Updated: 2024/11/15 16:36:01 by ncharbog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,5 +58,6 @@ int		positioning_sb(long nb, t_list *sb);
 void 	print_list(t_list *root);
 int		ft_iszero(char *str, t_list *root);
 int		ft_check_dup(long result, t_list *root);
+void	place_in_a(t_list *sa, t_list *sb);
 
 #endif

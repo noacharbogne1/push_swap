@@ -6,7 +6,7 @@
 /*   By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 13:56:32 by ncharbog          #+#    #+#             */
-/*   Updated: 2024/11/15 16:14:02 by ncharbog         ###   ########.fr       */
+/*   Updated: 2024/11/15 16:26:09 by ncharbog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -152,8 +152,11 @@ int	main(int argc, char **argv)
 		else if (len_lst(sa) == 5)
 			five_elems(sa, sb);
 		else if (len_lst(sa) > 5)
+		{
 			sort_list(sa, sb);
-		print_list(sa);
+			place_in_a(sa, sb);
+		}
+		//print_list(sa);
 		//print_list(sb);
 		ft_free(&sa);
 		ft_free(&sb);

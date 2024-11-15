@@ -6,7 +6,7 @@
 /*   By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 10:31:11 by noacharbogn       #+#    #+#             */
-/*   Updated: 2024/11/15 12:52:57 by ncharbog         ###   ########.fr       */
+/*   Updated: 2024/11/15 16:36:56 by ncharbog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,6 @@ void	sort_list(t_list *sa, t_list *sb)
 		swap(sb);
 	while (len_lst(sa) > 3)
 	{
-		print_list(sb);
-		printf("\n");
 		tmp = sa->prev;
 		i = find_combination(sa, sb);
 		while (i >= 0)
@@ -44,4 +42,24 @@ void	sort_list(t_list *sa, t_list *sb)
 	}
 	if (len_lst(sa) == 3)
 		three_elems(sa);
+}
+
+void	place_in_a(t_list *sa, t_list *sb)
+{
+	t_list	*tmp;
+	int		i;
+
+	i = 0;
+	tmp = sb->prev;
+	while (tmp > sa->prev && tmp != sb)
+	{
+		push(sb, sa);
+		tmp = sb->prev
+	}
+	while (tmp != sb)
+	{
+		case_r()
+		case_rr
+		tmp = sb->prev;
+	}
 }
