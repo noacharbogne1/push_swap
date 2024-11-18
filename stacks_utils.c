@@ -6,7 +6,7 @@
 /*   By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 11:43:37 by ncharbog          #+#    #+#             */
-/*   Updated: 2024/11/15 14:36:06 by ncharbog         ###   ########.fr       */
+/*   Updated: 2024/11/18 11:10:25 by ncharbog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ int	check_order(t_list *root)
 {
 	t_list	*tmp;
 
-	tmp = root;
+	tmp = root->next;
 	if (tmp->next == tmp)
 		return (1);
 	while (tmp)

@@ -6,7 +6,7 @@
 /*   By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 10:03:39 by ncharbog          #+#    #+#             */
-/*   Updated: 2024/11/15 16:36:01 by ncharbog         ###   ########.fr       */
+/*   Updated: 2024/11/18 11:32:51 by ncharbog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,21 @@ typedef struct s_list
 	struct	s_list	*prev;
 	struct	s_list	*next;
 }					t_list;
+
+enum e_coups
+{
+	PA = 1,
+	PB = 2,
+	SA = 3,
+	SB = 4,
+	SS = 5
+	RA = 6,
+	RB = 7,
+	RR = 8,
+	RRA = 9,
+	RRB = 10,
+	RRR = 11,
+}
 
 long	ft_across(char *str, t_list *root);
 long	ft_atol(char *nptr);
@@ -59,5 +74,11 @@ void 	print_list(t_list *root);
 int		ft_iszero(char *str, t_list *root);
 int		ft_check_dup(long result, t_list *root);
 void	place_in_a(t_list *sa, t_list *sb);
+int		case_r(long nb, t_list *sa);
+int		case_rr(long nb, t_list *sa);
+int		find_case(long nb, t_list *root);
+int		exec_case_r(t_list *sa, t_list *sb, int i);
+int		exec_case_rr(t_list *sa, t_list *sb, int i);
+void	final_rotate(t_list *sa);
 
 #endif

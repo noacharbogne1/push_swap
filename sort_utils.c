@@ -6,7 +6,7 @@
 /*   By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 09:21:34 by ncharbog          #+#    #+#             */
-/*   Updated: 2024/11/15 14:38:44 by ncharbog         ###   ########.fr       */
+/*   Updated: 2024/11/18 11:14:45 by ncharbog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 int	positioning_sb(long nb, t_list *sb)
 {
 	t_list	*tmp;
-	t_list	*prev;
 	t_list	*next;
 	int		i;
 
@@ -52,4 +51,52 @@ int	find_place(t_list *root, long nb)
 		tmp = tmp->next;
 	}
 	return (i);
+}
+
+int	case_r(long nb, t_list *sa)
+{
+	int		i;
+
+	i = positioning_sb(nb, sa);
+	if (i == len_lst(sa))
+		i = 0;
+	if (i != 0)
+		i = len_lst(sa) - i;
+	return (i);
+}
+
+int	case_rr(long nb, t_list *sa)
+{
+	int		i;
+
+	i = positioning_sb(nb, sa);
+	return (i);
+}
+
+void	final_rotate(t_list *sa)
+{
+	t_list	*tmp;
+	int		i;
+	int		max;
+
+	i = 0;
+	max = -2147483647;
+	tmp = sa->next;
+	while (tmp != sa)
+	{
+		if (max < tmp->nb)
+		{
+			max = tmp->nb;
+			break;
+		}
+		tmp = tmp->next;
+		i++;
+	}
+	while (!check_order(sa))
+	{
+		if (i > len_lst(sa) / 2)
+			rotate(sa);
+		else
+			reverse_rotate(sa);
+	}
 }

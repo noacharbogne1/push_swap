@@ -6,7 +6,7 @@
 /*   By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 13:56:32 by ncharbog          #+#    #+#             */
-/*   Updated: 2024/11/15 16:26:09 by ncharbog         ###   ########.fr       */
+/*   Updated: 2024/11/18 09:57:12 by ncharbog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -156,7 +156,7 @@ int	main(int argc, char **argv)
 			sort_list(sa, sb);
 			place_in_a(sa, sb);
 		}
-		//print_list(sa);
+		print_list(sa);
 		//print_list(sb);
 		ft_free(&sa);
 		ft_free(&sb);
