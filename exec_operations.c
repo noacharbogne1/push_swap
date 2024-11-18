@@ -6,7 +6,7 @@
 /*   By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 14:52:05 by ncharbog          #+#    #+#             */
-/*   Updated: 2024/11/15 14:37:31 by ncharbog         ###   ########.fr       */
+/*   Updated: 2024/11/18 17:14:15 by ncharbog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,24 +16,37 @@ int	exec_rarb(t_list *sa, t_list *sb, long nb)
 {
 	int	i_sb;
 	int	i_sa;
+	int	same;
 
+	same = 0;
 	i_sb = positioning_sb(nb, sb);
 	if (i_sb == len_lst(sb))
 		i_sb = 0;
 	if (i_sb != 0)
 		i_sb = len_lst(sb) - i_sb;
 	i_sa = len_lst(sa) - find_place(sa, nb);
+	if (i_sa < i_sb)
+		same = i_sa + (i_sb - i_sa);
+	else if (i_sa > i_sb)
+		same = i_sb + (i_sa - i_sb);
+	while (same > 0)
+	{
+		ep_rr(sa, sb);
+		same--;
+	}
+	i_sb = i_sb - same;
+	i_sa = i_sa - same;
 	while (i_sb > 0)
 	{
-		rotate(sb);
+		ep_rb(sb);
 		i_sb--;
 	}
 	while (i_sa > 0)
 	{
-		rotate(sa);
+		ep_ra(sa);
 		i_sa--;
 	}
-	push(sa, sb);
+	ep_pa(sa, sb);
 	return (-1);
 }
 
@@ -41,22 +54,33 @@ int	exec_rrarrb(t_list *sa, t_list *sb, long nb)
 {
 	int	i_sb;
 	int	i_sa;
+	int same;
 
+	same = 0;
 	i_sb = positioning_sb(nb, sb);
 	i_sa = find_place(sa, nb);
-	//if (i_sa > 1)
-		//i_sa = i_sa - 1;
+	if (i_sa < i_sb)
+		same = i_sa + (i_sb - i_sa);
+	else if (i_sa > i_sb)
+		same = i_sb + (i_sa - i_sb);
+	while (same > 0)
+	{
+		ep_rrr(sa, sb);
+		same--;
+	}
+	i_sb = i_sb - same;
+	i_sa = i_sa - same;
 	while (i_sb > 0)
 	{
-		reverse_rotate(sb);
+		ep_rrb(sb);
 		i_sb--;
 	}
 	while (i_sa > 0)
 	{
-		reverse_rotate(sa);
+		ep_rra(sa);
 		i_sa--;
 	}
-	push(sa, sb);
+	ep_pa(sa, sb);
 	return (-1);
 }
 
@@ -71,19 +95,17 @@ int	exec_rrarb(t_list *sa, t_list *sb, long nb)
 	if (i_sb != 0)
 		i_sb = len_lst(sb) - i_sb;
 	i_sa = find_place(sa, nb);
-	//if (i_sa > 1)
-		//i_sa = i_sa - 1;
 	while (i_sb > 0)
 	{
-		rotate(sb);
+		ep_rb(sb);
 		i_sb--;
 	}
 	while (i_sa > 0)
 	{
-		reverse_rotate(sa);
+		ep_rra(sa);
 		i_sa--;
 	}
-	push(sa, sb);
+	ep_pa(sa, sb);
 	return (-1);
 }
 
@@ -94,18 +116,16 @@ int	exec_rarrb(t_list *sa, t_list *sb, long nb)
 
 	i_sb = positioning_sb(nb, sb);
 	i_sa = len_lst(sa) - find_place(sa, nb);
-	//if (i_sa > 1)
-	//	i_sa = i_sa - 1;
 	while (i_sb > 0)
 	{
-		reverse_rotate(sb);
+		ep_rrb(sb);
 		i_sb--;
 	}
 	while (i_sa > 0)
 	{
-		rotate(sa);
+		ep_ra(sa);
 		i_sa--;
 	}
-	push(sa, sb);
+	ep_pa(sa, sb);
 	return (-1);
 }

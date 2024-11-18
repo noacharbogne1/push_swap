@@ -6,7 +6,7 @@
 /*   By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 10:20:05 by noacharbogn       #+#    #+#             */
-/*   Updated: 2024/11/15 14:38:24 by ncharbog         ###   ########.fr       */
+/*   Updated: 2024/11/18 17:14:58 by ncharbog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	swap(t_list *root)
 	head = root->prev;
 	prev = head->prev;
 	if (!head || !prev)
-		return;
+		return ;
 	prev_prev = prev->prev;
 	tmp = head->nb;
     head->nb = prev->nb;

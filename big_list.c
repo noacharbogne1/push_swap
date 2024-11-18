@@ -6,7 +6,7 @@
 /*   By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 10:31:11 by noacharbogn       #+#    #+#             */
-/*   Updated: 2024/11/18 11:14:07 by ncharbog         ###   ########.fr       */
+/*   Updated: 2024/11/18 17:00:25 by ncharbog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@ void	sort_list(t_list *sa, t_list *sb)
 	int		i;
 
 	i = 0;
-	push(sa, sb);
-	push(sa, sb);
+	ep_pb(sa, sb);
+	ep_pb(sa, sb);
 	if (!check_order(sb))
-		swap(sb);
+		ep_sb(sb);
 	while (len_lst(sa) > 3)
 	{
 		tmp = sa->prev;
@@ -55,7 +55,7 @@ void	place_in_a(t_list *sa, t_list *sb)
 	{
 		if (tmp->nb > sa->prev->nb)
 		{
-			push(sb, sa);
+			ep_pa(sa, sb);
 			tmp = sb->prev;
 		}
 		else
