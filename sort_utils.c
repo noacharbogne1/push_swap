@@ -6,7 +6,7 @@
 /*   By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 09:21:34 by ncharbog          #+#    #+#             */
-/*   Updated: 2024/11/18 11:14:45 by ncharbog         ###   ########.fr       */
+/*   Updated: 2024/11/19 09:38:36 by ncharbog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,8 +95,8 @@ void	final_rotate(t_list *sa)
 	while (!check_order(sa))
 	{
 		if (i > len_lst(sa) / 2)
-			rotate(sa);
+			ep_ra(sa);
 		else
-			reverse_rotate(sa);
+			ep_rra(sa);
 	}
 }

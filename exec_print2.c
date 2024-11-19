@@ -6,7 +6,7 @@
 /*   By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 16:29:47 by ncharbog          #+#    #+#             */
-/*   Updated: 2024/11/18 17:28:36 by ncharbog         ###   ########.fr       */
+/*   Updated: 2024/11/19 08:49:27 by ncharbog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,13 @@ void	ep_rr(t_list *sa, t_list *sb)
 void	ep_rra(t_list *sa)
 {
 	reverse_rotate(sa);
-	write(1, "rra\n", 3);
+	write(1, "rra\n", 4);
 }
 
 void	ep_rrb(t_list *sb)
 {
 	reverse_rotate(sb);
-	write(1, "rrb\n", 3);
+	write(1, "rrb\n", 4);
 }
 
 void	ep_rrr(t_list *sa, t_list *sb)

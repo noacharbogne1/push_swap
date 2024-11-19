@@ -6,7 +6,7 @@
 /*   By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 09:47:05 by ncharbog          #+#    #+#             */
-/*   Updated: 2024/11/18 10:21:36 by ncharbog         ###   ########.fr       */
+/*   Updated: 2024/11/19 09:06:21 by ncharbog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@ int	exec_case_r(t_list *sa, t_list *sb, int i)
 {
 	while (i > 0)
 	{
-		rotate(sa);
+		ep_ra(sa);
 		i--;
 	}
-	push(sb, sa);
+	ep_pa(sa, sb);
 	return (-1);
 }
 
@@ -27,9 +27,9 @@ int	exec_case_rr(t_list *sa, t_list *sb, int i)
 {
 	while (i > 0)
 	{
-		reverse_rotate(sa);
+		ep_rra(sa);
 		i--;
 	}
-	push(sb, sa);
+	ep_pa(sa, sb);
 	return (-1);
 }

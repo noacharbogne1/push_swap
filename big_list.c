@@ -6,7 +6,7 @@
 /*   By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 10:31:11 by noacharbogn       #+#    #+#             */
-/*   Updated: 2024/11/18 17:00:25 by ncharbog         ###   ########.fr       */
+/*   Updated: 2024/11/19 09:38:09 by ncharbog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,19 +53,11 @@ void	place_in_a(t_list *sa, t_list *sb)
 	tmp = sb->prev;
 	while (tmp != sb)
 	{
-		if (tmp->nb > sa->prev->nb)
-		{
-			ep_pa(sa, sb);
-			tmp = sb->prev;
-		}
-		else
-		{
-			i = find_case(tmp->nb, sa);
-			if (i == case_r(tmp->nb, sa))
-				i = exec_case_r(sa, sb, i);
-			if (i == case_rr(tmp->nb, sa))
-				i = exec_case_r(sa, sb, i);
-		}
+		i = find_case(tmp->nb, sa);
+		if (i == case_r(tmp->nb, sa))
+			i = exec_case_r(sa, sb, i);
+		if (i == case_rr(tmp->nb, sa))
+			i = exec_case_rr(sa, sb, i);
 		tmp = sb->prev;
 	}
 	final_rotate(sa);
