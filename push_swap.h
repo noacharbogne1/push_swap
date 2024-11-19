@@ -6,7 +6,7 @@
 /*   By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 10:03:39 by ncharbog          #+#    #+#             */
-/*   Updated: 2024/11/19 16:56:17 by ncharbog         ###   ########.fr       */
+/*   Updated: 2024/11/19 17:09:44 by ncharbog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,9 +78,13 @@ int		exec_case_rr(t_list *sa, t_list *sb, int i);
 //sort_utils.c
 int		find_place_sb(t_list *root, long nb);
 int		positioning_sb(long nb, t_list *sb);
+int		find_place_sa(t_list *root, long nb);
+int		positioning_sa(long nb, t_list *sa);
+void	final_rotate(t_list *sa);
+
+//find_case.c
 int		case_r(long nb, t_list *sa);
 int		case_rr(long nb, t_list *sa);
-void	final_rotate(t_list *sa);
 
 //exec_print.c
 void	ep_sa(t_list *sa);
