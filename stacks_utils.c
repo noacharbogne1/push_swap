@@ -6,7 +6,7 @@
 /*   By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 11:43:37 by ncharbog          #+#    #+#             */
-/*   Updated: 2024/11/18 11:10:25 by ncharbog         ###   ########.fr       */
+/*   Updated: 2024/11/19 15:51:38 by ncharbog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ t_list	*create_list(void)
 	return (root);
 }
 
-void	*add_node(t_list *root, long value)
+void	*add_back(t_list *root, long value)
 {
 	t_list	*new;
 

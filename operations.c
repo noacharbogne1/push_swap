@@ -6,7 +6,7 @@
 /*   By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 10:20:05 by noacharbogn       #+#    #+#             */
-/*   Updated: 2024/11/18 17:14:58 by ncharbog         ###   ########.fr       */
+/*   Updated: 2024/11/19 15:48:58 by ncharbog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,23 +15,21 @@
 void	swap(t_list *root)
 {
 	t_list	*head;
-	t_list	*prev;
-	t_list	*prev_prev;
+	t_list	*next;
 	long	tmp;
 
-	head = root->prev;
-	prev = head->prev;
-	if (!head || !prev)
+	head = root->next;
+	next = head->next;
+	if (!head || !next)
 		return ;
-	prev_prev = prev->prev;
 	tmp = head->nb;
-    head->nb = prev->nb;
-    prev->nb = tmp;
-	head->prev = prev;
-	head->next = root;
-	prev->next = head;
+	head->nb = next->nb;
+	next->nb = tmp;
+	head->next = next;
+	head->prev = root;
+	next->prev = head;
 	if (root)
-		root->prev = head;
+		root->next = head;
 }
 
 void	push(t_list *from, t_list *to)
@@ -41,9 +39,9 @@ void	push(t_list *from, t_list *to)
 
 	if (!from || !to)
 		return ;
-	top_from = from->prev;
+	top_from = from->next;
 	content = top_from->nb;
-	add_node(to, content);
+	add_front(to, content);
 	del_node(top_from);
 }
 
@@ -56,10 +54,10 @@ void	rotate(t_list *root)
 		return ;
 	first = root->next;
 	last = root->prev;
-	root->next = last;
-	root->prev = last->prev;
-	last->prev = root;
-	root->prev->next = root;
+	root->prev = first;
+	root->next = first->next;
+	first->next = root;
+	root->next->prev = root;
 	last->next = first;
 	first->prev = last;
 }
@@ -73,10 +71,10 @@ void	reverse_rotate(t_list *root)
 		return ;
 	first = root->next;
 	last = root->prev;
-	root->prev = first;
-	root->next = first->next;
-	first->next = root;
-	root->next->prev = root;
+	root->next = last;
+	root->prev = last->prev;
+	last->prev = root;
+	root->prev->next = root;
 	last->next = first;
 	first->prev = last;
 }

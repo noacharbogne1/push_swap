@@ -6,7 +6,7 @@
 /*   By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 10:03:39 by ncharbog          #+#    #+#             */
-/*   Updated: 2024/11/19 10:16:01 by ncharbog         ###   ########.fr       */
+/*   Updated: 2024/11/19 16:56:17 by ncharbog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int		ft_count(long n);
 // stacks_utils.c
 int		check_order(t_list *root);
 void	ft_free(t_list **root);
-void	*add_node(t_list *root, long value);
+void	*add_back(t_list *root, long value);
 t_list	*create_list(void);
 void	del_node(t_list *element);
 
@@ -41,6 +41,7 @@ int		ft_iszero(char *str, t_list *root);
 int		len_lst(t_list *root);
 long	min(t_list *root);
 long	max(t_list *root);
+void	add_front(t_list *root, long content);
 
 //operations.c
 void	push(t_list *from, t_list *to);
@@ -75,7 +76,7 @@ int		exec_case_r(t_list *sa, t_list *sb, int i);
 int		exec_case_rr(t_list *sa, t_list *sb, int i);
 
 //sort_utils.c
-int		find_place(t_list *root, long nb);
+int		find_place_sb(t_list *root, long nb);
 int		positioning_sb(long nb, t_list *sb);
 int		case_r(long nb, t_list *sa);
 int		case_rr(long nb, t_list *sa);

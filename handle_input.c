@@ -6,7 +6,7 @@
 /*   By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 13:56:32 by ncharbog          #+#    #+#             */
-/*   Updated: 2024/11/19 12:40:48 by ncharbog         ###   ########.fr       */
+/*   Updated: 2024/11/19 16:45:33 by ncharbog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,14 +98,14 @@ long	ft_across(char *str, t_list *root)
 			return (0);
 		if (ft_check_dup(result, root))
 			return (0);
-		add_node(root, result);
+		add_back(root, result);
 		i += ft_count(result);
 	}
 	return (result);
 }
 
 // À RETIRER //
-/*
+
 #include <stdio.h>
 void print_list(t_list *root)
 {
@@ -119,7 +119,7 @@ void print_list(t_list *root)
 		if (current == root)
 			return ;
     }
-}*/
+}
 
 int	main(int argc, char **argv)
 {
@@ -160,7 +160,7 @@ int	main(int argc, char **argv)
 			sort_list(sa, sb);
 			place_in_a(sa, sb);
 		}
-		//print_list(sa);
+		print_list(sb);
 		ft_free(&sa);
 		ft_free(&sb);
 	}

@@ -6,7 +6,7 @@
 /*   By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 14:42:14 by ncharbog          #+#    #+#             */
-/*   Updated: 2024/11/19 12:17:46 by ncharbog         ###   ########.fr       */
+/*   Updated: 2024/11/19 16:06:30 by ncharbog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,20 +22,24 @@ void	three_elems(t_list *root)
 	if (root->next->nb < elem2->nb && root->prev->nb < elem2->nb)
 	{
 		if (root->next->nb > root->prev->nb)
-			ep_ra(root);
+			ep_rra(root);
 		else if (root->next->nb < root->prev->nb)
+		{
 			ep_sa(root);
+			ep_ra(root);
+		}
 	}
 	else if (root->next->nb > elem2->nb && root->prev->nb > elem2->nb)
 	{
-		ep_rra(root);
-		if (root->next->next->nb > root->prev->nb)
+		if (root->next->nb < root->prev->nb)
 			ep_sa(root);
+		else
+			ep_ra(root);
 	}
 	else
 	{
-		ep_ra(root);
 		ep_sa(root);
+		ep_rra(root);
 	}
 }
 

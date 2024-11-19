@@ -6,7 +6,7 @@
 /*   By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 10:31:11 by noacharbogn       #+#    #+#             */
-/*   Updated: 2024/11/19 11:07:16 by ncharbog         ###   ########.fr       */
+/*   Updated: 2024/11/19 16:46:01 by ncharbog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@ void	sort_list(t_list *sa, t_list *sb)
 	i = 0;
 	ep_pb(sa, sb);
 	ep_pb(sa, sb);
-	if (!check_order(sb))
+	if (check_order(sb))
 		ep_sb(sb);
 	while (len_lst(sa) > 3)
 	{
-		tmp = sa->prev;
+		tmp = sa->next;
 		i = find_combination(sa, sb);
 		while (i >= 0)
 		{
@@ -37,7 +37,7 @@ void	sort_list(t_list *sa, t_list *sb)
 			else if (i == combination_rarrb(tmp->nb, sa, sb))
 				i = exec_rarrb(sa, sb, tmp->nb);
 			else
-				tmp = tmp->prev;
+				tmp = tmp->next;
 		}
 	}
 	if (len_lst(sa) == 3)
@@ -50,7 +50,7 @@ void	place_in_a(t_list *sa, t_list *sb)
 	int		i;
 
 	i = 0;
-	tmp = sb->prev;
+	tmp = sb->next;
 	while (tmp != sb)
 	{
 		i = find_case(tmp->nb, sa);
@@ -58,7 +58,7 @@ void	place_in_a(t_list *sa, t_list *sb)
 			i = exec_case_r(sa, sb, i);
 		else if (i == case_rr(tmp->nb, sa))
 			i = exec_case_rr(sa, sb, i);
-		tmp = sb->prev;
+		tmp = sb->next;
 	}
 	final_rotate(sa);
 }

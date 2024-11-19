@@ -6,7 +6,7 @@
 /*   By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 11:25:47 by noacharbogn       #+#    #+#             */
-/*   Updated: 2024/11/18 16:45:24 by ncharbog         ###   ########.fr       */
+/*   Updated: 2024/11/19 16:41:43 by ncharbog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int find_combination(t_list *sa, t_list *sb)
 	t_list	*tmp;
 	int		i;
 
-	tmp = sa->prev;
+	tmp = sa->next;
 	i = combination_rarb(tmp->nb, sa, sb);
 	while (tmp != sa)
 	{
@@ -29,7 +29,7 @@ int find_combination(t_list *sa, t_list *sb)
 			i = combination_rrarb(tmp->nb, sa, sb);
 		if (i > combination_rarrb(tmp->nb, sa, sb))
 			i = combination_rarrb(tmp->nb, sa, sb);
-		tmp = tmp->prev;
+		tmp = tmp->next;
 	}
 	return (i);
 }
@@ -51,6 +51,7 @@ int	combination_rarb(long nb, t_list *sa, t_list *sb)
 		i = i_sb + (i - i_sb);
 	return (i);
 }
+
 int	combination_rrarrb(long nb, t_list *sa, t_list *sb)
 {
 	int		i;
@@ -79,6 +80,7 @@ int	combination_rrarb(long nb, t_list *sa, t_list *sb)
 	i = i + i_sb;
 	return (i);
 }
+
 int	combination_rarrb(long nb, t_list *sa, t_list *sb)
 {
 	int		i;

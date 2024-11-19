@@ -6,7 +6,7 @@
 /*   By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 09:21:34 by ncharbog          #+#    #+#             */
-/*   Updated: 2024/11/19 09:38:36 by ncharbog         ###   ########.fr       */
+/*   Updated: 2024/11/19 16:56:22 by ncharbog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,36 +19,36 @@ int	positioning_sb(long nb, t_list *sb)
 	int		i;
 
 	i = 1;
-	tmp = sb->next;
+	tmp = sb->prev;
 	if (nb < min(sb) || nb > max(sb))
 		i = find_place(sb, max(sb));
 	else
 	{
 		while (tmp != sb)
 		{
-			next = tmp->next;
+			next = tmp->prev;
 			if (next == sb)
-					next = sb->next;
+					next = sb->prev;
 			if (nb > tmp->nb && nb < next->nb)
 				break;
 			i++;
-			tmp = tmp->next;
+			tmp = tmp->prev;
 		}
 	}
 	return (i);
 }
 
-int	find_place(t_list *root, long nb)
+int	find_place_sb(t_list *root, long nb)
 {
 	t_list	*tmp;
 	int		i;
 
 	i = 1;
-	tmp = root->next;
+	tmp = root->prev;
 	while (tmp->nb != nb)
 	{
 		i++;
-		tmp = tmp->next;
+		tmp = tmp->prev;
 	}
 	return (i);
 }
@@ -73,6 +73,7 @@ int	case_rr(long nb, t_list *sa)
 	return (i);
 }
 
+
 void	final_rotate(t_list *sa)
 {
 	t_list	*tmp;
@@ -95,8 +96,8 @@ void	final_rotate(t_list *sa)
 	while (!check_order(sa))
 	{
 		if (i > len_lst(sa) / 2)
-			ep_ra(sa);
-		else
 			ep_rra(sa);
+		else
+			ep_ra(sa);
 	}
 }

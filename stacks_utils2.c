@@ -6,7 +6,7 @@
 /*   By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 16:39:44 by ncharbog          #+#    #+#             */
-/*   Updated: 2024/11/18 14:54:27 by ncharbog         ###   ########.fr       */
+/*   Updated: 2024/11/19 15:57:10 by ncharbog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,32 @@ int	ft_iszero(char *str, t_list *root)
 	if (str[i] >= '0' && str[i] <= '9')
 		return (-1);
 	else
-		add_node(root, 0);
+		add_front(root, 0);
 	return (i);
+}
+
+void	add_front(t_list *root, long content)
+{
+	t_list	*new;
+
+	if (!root || !content)
+		return ;
+	new = malloc(sizeof(t_list));
+	if (!new)
+		return ;
+	new->nb = content;
+	if (root->next == root)
+	{
+		root->next = new;
+		root->prev = new;
+		new->next = root;
+		new->prev = root;
+	}
+	else
+	{
+		new->next = root->next;
+		new->prev = root;
+		root->next->prev = new;
+		root->next = new;
+	}
 }
