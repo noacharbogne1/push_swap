@@ -6,7 +6,7 @@
 /*   By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 14:42:14 by ncharbog          #+#    #+#             */
-/*   Updated: 2024/11/18 17:20:59 by ncharbog         ###   ########.fr       */
+/*   Updated: 2024/11/19 12:17:46 by ncharbog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	three_elems(t_list *root)
 	else if (root->next->nb > elem2->nb && root->prev->nb > elem2->nb)
 	{
 		ep_rra(root);
-		if (root->next->nb < root->prev->nb)
+		if (root->next->next->nb > root->prev->nb)
 			ep_sa(root);
 	}
 	else
@@ -43,7 +43,7 @@ void	four_elems(t_list *sa, t_list *sb)
 {
 	ep_pb(sa, sb);
 	three_elems(sa);
-	ep_pb(sa, sb);
+	ep_pa(sa, sb);
 	if (sa->prev->nb < sa->next->nb)
 		ep_ra(sa);
 	if (sa->prev->nb < sa->next->next->nb)
@@ -55,30 +55,4 @@ void	four_elems(t_list *sa, t_list *sb)
 	}
 	if (sa->prev->nb < sa->prev->prev->nb)
 		ep_sa(sa);
-}
-
-void	five_elems(t_list *sa, t_list *sb)
-{
-	push(sa, sb);
-	push(sa, sb);
-	three_elems(sa);
-	if (sb->next->nb < sa->prev->nb)
-	{
-		swap(sb);
-		push(sb, sa);
-	}
-	else
-		push(sb, sa);
-	push(sb, sa);
-	if (sa->prev->nb < sa->next->nb)
-		rotate(sa);
-	if (sa->prev->nb < sa->next->next->nb)
-	{
-		reverse_rotate(sa);
-		swap(sa);
-		rotate(sa);
-		rotate(sa);
-	}
-	if (sa->prev->nb < sa->prev->prev->nb)
-		swap(sa);
 }

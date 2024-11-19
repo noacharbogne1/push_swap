@@ -6,7 +6,7 @@
 /*   By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 13:56:32 by ncharbog          #+#    #+#             */
-/*   Updated: 2024/11/18 17:14:22 by ncharbog         ###   ########.fr       */
+/*   Updated: 2024/11/19 12:40:48 by ncharbog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,8 @@ long	ft_across(char *str, t_list *root)
 }
 
 // À RETIRER //
-
+/*
+#include <stdio.h>
 void print_list(t_list *root)
 {
 	if (!root)
@@ -118,7 +119,7 @@ void print_list(t_list *root)
 		if (current == root)
 			return ;
     }
-}
+}*/
 
 int	main(int argc, char **argv)
 {
@@ -137,29 +138,35 @@ int	main(int argc, char **argv)
 			{
 				write(1, "Error\n", 6);
 				ft_free(&sa);
+				ft_free(&sb);
 				return (0);
 			}
 			i++;
 		}
 		if (check_order(sa))
+		{
+			ft_free(&sa);
+			ft_free(&sb);
 			return (0);
+		}
 		if (len_lst(sa) == 2)
 			ep_sa(sa);
 		else if (len_lst(sa) == 3)
 			three_elems(sa);
 		else if (len_lst(sa) == 4)
 			four_elems(sa, sb);
-		else if (len_lst(sa) == 5)
-			five_elems(sa, sb);
-		else if (len_lst(sa) > 5)
+		else if (len_lst(sa) > 4)
 		{
 			sort_list(sa, sb);
 			place_in_a(sa, sb);
 		}
-		print_list(sa);
+		//print_list(sa);
 		ft_free(&sa);
 		ft_free(&sb);
 	}
-	write(1, "Error\n", 6);
-	return (0);
+	else
+	{
+		write(1, "Error\n", 6);
+		return (0);
+	}
 }

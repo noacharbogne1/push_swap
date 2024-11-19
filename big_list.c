@@ -6,7 +6,7 @@
 /*   By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 10:31:11 by noacharbogn       #+#    #+#             */
-/*   Updated: 2024/11/19 09:38:09 by ncharbog         ###   ########.fr       */
+/*   Updated: 2024/11/19 11:07:16 by ncharbog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void	place_in_a(t_list *sa, t_list *sb)
 		i = find_case(tmp->nb, sa);
 		if (i == case_r(tmp->nb, sa))
 			i = exec_case_r(sa, sb, i);
-		if (i == case_rr(tmp->nb, sa))
+		else if (i == case_rr(tmp->nb, sa))
 			i = exec_case_rr(sa, sb, i);
 		tmp = sb->prev;
 	}

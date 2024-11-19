@@ -6,7 +6,7 @@
 /*   By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 10:03:39 by ncharbog          #+#    #+#             */
-/*   Updated: 2024/11/18 17:14:39 by ncharbog         ###   ########.fr       */
+/*   Updated: 2024/11/19 10:16:01 by ncharbog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,29 +16,12 @@
 # include <unistd.h>
 # include <stdlib.h>
 
-#include <stdio.h>
-
 typedef struct s_list
 {
 	long	nb;
 	struct	s_list	*prev;
 	struct	s_list	*next;
 }					t_list;
-
-enum e_operations
-{
-	PA = 1,
-	PB = 2,
-	SA = 3,
-	SB = 4,
-	SS = 5,
-	RA = 6,
-	RB = 7,
-	RR = 8,
-	RRA = 9,
-	RRB = 10,
-	RRR = 11
-};
 
 // handle_input.c
 long	ft_across(char *str, t_list *root);
@@ -68,7 +51,6 @@ void	reverse_rotate(t_list *root);
 //small_list.c
 void	three_elems(t_list *root);
 void	four_elems(t_list *sa, t_list *sb);
-void	five_elems(t_list *sa, t_list *sb);
 
 //big_list.c
 void	sort_list(t_list *sa, t_list *sb);
