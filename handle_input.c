@@ -6,7 +6,7 @@
 /*   By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 13:56:32 by ncharbog          #+#    #+#             */
-/*   Updated: 2024/11/20 15:27:21 by ncharbog         ###   ########.fr       */
+/*   Updated: 2024/11/20 16:22:57 by ncharbog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,45 +128,23 @@ int	main(int argc, char **argv)
 	t_list	*sb;
 
 	i = 1;
-	sa = create_list();
-	sb = create_list();
 	if (argc >= 2)
 	{
+		sa = create_list();
+		sb = create_list();
 		while (argv[i])
 		{
 			if (!ft_across(argv[i], sa))
-			{
-				write(1, "Error\n", 6);
-				ft_free(&sa);
-				ft_free(&sb);
-				return (0);
-			}
+				return (write_error(sa, sb));
 			i++;
 		}
-		if (check_order(sa))
-		{
-			ft_free(&sa);
-			ft_free(&sb);
-			return (0);
-		}
-		if (len_lst(sa) == 2)
-			ep_sa(sa);
-		else if (len_lst(sa) == 3)
-			three_elems(sa);
-		else if (len_lst(sa) == 4)
-			four_elems(sa, sb);
-		else if (len_lst(sa) > 4)
-		{
-			sort_list(sa, sb);
-			place_in_a(sa, sb);
-		}
-		//print_list(sa);
+		prepare_sorting(sa, sb);
+		if (!prepare_sorting(sa, sb))
+			return (ft_error(sa, sb));
 		ft_free(&sa);
 		ft_free(&sb);
+		return (1);
 	}
-	else
-	{
-		write(1, "Error\n", 6);
-		return (0);
-	}
+	write(2, "Error\n", 6);
+	return (0);
 }

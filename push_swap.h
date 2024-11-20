@@ -6,7 +6,7 @@
 /*   By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 10:03:39 by ncharbog          #+#    #+#             */
-/*   Updated: 2024/11/19 17:09:44 by ncharbog         ###   ########.fr       */
+/*   Updated: 2024/11/20 16:19:30 by ncharbog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,10 @@ long	ft_atol(char *nptr);
 int		ft_check_dup(long result, t_list *root);
 int		ft_count(long n);
 
+//handle_input2.c
+int	prepare_sorting(t_list *sa, t_list *sb);
+int	write_error(t_list *sa, t_list *sb);
+
 // stacks_utils.c
 int		check_order(t_list *root);
 void	ft_free(t_list **root);
@@ -37,10 +41,9 @@ t_list	*create_list(void);
 void	del_node(t_list *element);
 
 //stacks_utils2.c
+int		ft_error(t_list *sa, t_list *sb);
 int		ft_iszero(char *str, t_list *root);
 int		len_lst(t_list *root);
-long	min(t_list *root);
-long	max(t_list *root);
 void	add_front(t_list *root, long content);
 
 //operations.c
@@ -81,6 +84,10 @@ int		positioning_sb(long nb, t_list *sb);
 int		find_place_sa(t_list *root, long nb);
 int		positioning_sa(long nb, t_list *sa);
 void	final_rotate(t_list *sa);
+
+//sort_utils2.c
+long	min(t_list *root);
+long	max(t_list *root);
 
 //find_case.c
 int		case_r(long nb, t_list *sa);

@@ -6,11 +6,18 @@
 /*   By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 16:39:44 by ncharbog          #+#    #+#             */
-/*   Updated: 2024/11/20 15:22:03 by ncharbog         ###   ########.fr       */
+/*   Updated: 2024/11/20 15:45:29 by ncharbog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	ft_error(t_list *sa, t_list *sb)
+{
+	ft_free(&sa);
+	ft_free(&sb);
+	return (0);
+}
 
 int	len_lst(t_list *root)
 {
@@ -27,38 +34,6 @@ int	len_lst(t_list *root)
 		len++;
 	}
 	return (len);
-}
-
-long	min(t_list *root)
-{
-	t_list *tmp;
-	long	min;
-
-	min = 2147483648;
-	tmp = root->next;
-	while (tmp != root)
-	{
-		if (min > tmp->nb)
-			min = tmp->nb;
-		tmp = tmp->next;
-	}
-	return (min);
-}
-
-long	max(t_list *root)
-{
-	t_list *tmp;
-	long	max;
-
-	max = -2147483649;
-	tmp = root->next;
-	while (tmp != root)
-	{
-		if (max < tmp->nb)
-			max = tmp->nb;
-		tmp = tmp->next;
-	}
-	return (max);
 }
 
 int	ft_iszero(char *str, t_list *root)
