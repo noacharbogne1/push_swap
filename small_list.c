@@ -6,7 +6,7 @@
 /*   By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 14:42:14 by ncharbog          #+#    #+#             */
-/*   Updated: 2024/11/19 16:06:30 by ncharbog         ###   ########.fr       */
+/*   Updated: 2024/11/20 11:32:40 by ncharbog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,18 +45,29 @@ void	three_elems(t_list *root)
 
 void	four_elems(t_list *sa, t_list *sb)
 {
+	t_list	*tmp;
+	int		i;
+	int		min;
+
+	i = 0;
+	min = 2147483647;
+	tmp = sa->next;
+	while (tmp != sa)
+	{
+		if (min > tmp->nb)
+		{
+			min = tmp->nb;
+			i++;
+		}
+		tmp = tmp->next;
+	}
+	tmp = sa->next;
+	while (i > 1)
+	{
+		ep_ra(sa);
+		i--;
+	}
 	ep_pb(sa, sb);
 	three_elems(sa);
 	ep_pa(sa, sb);
-	if (sa->prev->nb < sa->next->nb)
-		ep_ra(sa);
-	if (sa->prev->nb < sa->next->next->nb)
-	{
-		ep_rra(sa);
-		ep_sa(sa);
-		ep_ra(sa);
-		ep_ra(sa);
-	}
-	if (sa->prev->nb < sa->prev->prev->nb)
-		ep_sa(sa);
 }
