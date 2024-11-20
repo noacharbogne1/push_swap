@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+        */
+/*   By: noacharbogne <noacharbogne@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 10:03:39 by ncharbog          #+#    #+#             */
-/*   Updated: 2024/11/20 16:19:30 by ncharbog         ###   ########.fr       */
+/*   Updated: 2024/11/20 18:09:24 by noacharbogn      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,20 @@ typedef struct s_list
 	struct	s_list	*prev;
 	struct	s_list	*next;
 }					t_list;
+
+typedef struct s_rarb
+{
+	int	i_sb;
+	int	i_sa;
+	int same;
+}				t_rarb;
+
+typedef struct s_rrarrb
+{
+	int	i_sb;
+	int	i_sa;
+	int same;
+}				t_rrarrb;
 
 // handle_input.c
 long	ft_across(char *str, t_list *root);
@@ -77,6 +91,10 @@ int		exec_rarrb(t_list *sa, t_list *sb, long nb);
 //exec_operations2.c
 int		exec_case_r(t_list *sa, t_list *sb, int i);
 int		exec_case_rr(t_list *sa, t_list *sb, int i);
+
+//exec_operations_utils.c
+t_rarb calculate_indices_rarb(t_list *sa, t_list *sb, long nb);
+t_rrarrb calculate_indices_rrarrb(t_list *sa, t_list *sb, long nb);
 
 //sort_utils.c
 int		find_place_sb(t_list *root, long nb);

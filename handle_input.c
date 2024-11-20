@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   handle_input.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+        */
+/*   By: noacharbogne <noacharbogne@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 13:56:32 by ncharbog          #+#    #+#             */
-/*   Updated: 2024/11/20 16:22:57 by ncharbog         ###   ########.fr       */
+/*   Updated: 2024/11/20 18:10:13 by noacharbogn      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -141,6 +141,7 @@ int	main(int argc, char **argv)
 		prepare_sorting(sa, sb);
 		if (!prepare_sorting(sa, sb))
 			return (ft_error(sa, sb));
+		print_list(sa);
 		ft_free(&sa);
 		ft_free(&sb);
 		return (1);

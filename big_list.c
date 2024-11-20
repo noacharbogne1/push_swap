@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   big_list.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+        */
+/*   By: noacharbogne <noacharbogne@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 10:31:11 by noacharbogn       #+#    #+#             */
-/*   Updated: 2024/11/20 08:36:50 by ncharbog         ###   ########.fr       */
+/*   Updated: 2024/11/20 17:24:35 by noacharbogn      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	sort_list(t_list *sa, t_list *sb)
 				tmp = tmp->next;
 		}
 	}
-	if (len_lst(sa) == 3)
+	if (len_lst(sa) == 3 && !check_order(sa))
 		three_elems(sa);
 }
 
