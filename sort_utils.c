@@ -6,7 +6,7 @@
 /*   By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 09:21:34 by ncharbog          #+#    #+#             */
-/*   Updated: 2024/11/20 08:26:26 by ncharbog         ###   ########.fr       */
+/*   Updated: 2024/11/20 10:02:09 by ncharbog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,10 +108,9 @@ void	final_rotate(t_list *sa)
 		if (max < tmp->nb)
 		{
 			max = tmp->nb;
-			break;
+			i++;
 		}
 		tmp = tmp->next;
-		i++;
 	}
 	while (!check_order(sa))
 	{

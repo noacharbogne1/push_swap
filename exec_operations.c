@@ -6,7 +6,7 @@
 /*   By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 14:52:05 by ncharbog          #+#    #+#             */
-/*   Updated: 2024/11/20 08:24:53 by ncharbog         ###   ########.fr       */
+/*   Updated: 2024/11/20 10:34:19 by ncharbog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,10 @@ int	exec_rarb(t_list *sa, t_list *sb, long nb)
 	int	i_sb;
 	int	i_sa;
 	int	same;
+	int	i;
 
 	same = 0;
+	i = 0;
 	i_sb = positioning_sb(nb, sb);
 	if (i_sb == len_lst(sb))
 		i_sb = 0;
@@ -26,16 +28,22 @@ int	exec_rarb(t_list *sa, t_list *sb, long nb)
 		i_sb = len_lst(sb) - i_sb;
 	i_sa = len_lst(sa) - find_place_sb(sa, nb);
 	if (i_sa < i_sb && i_sa > 0 && i_sb > 0)
-		same = i_sa + (i_sb - i_sa);
+	{
+		same = i_sa;
+		i_sb = i_sb - same;
+		i_sa = 0;
+	}
 	else if (i_sa > i_sb && i_sa > 0 && i_sb > 0)
-		same = i_sb + (i_sa - i_sb);
-	while (same > 0)
+	{
+		same = i_sb;
+		i_sa = i_sa - same;
+		i_sb = 0;
+	}
+	while (i < same)
 	{
 		ep_rr(sa, sb);
-		same--;
+		i++;
 	}
-	i_sb = i_sb - same;
-	i_sa = i_sa - same;
 	while (i_sb > 0)
 	{
 		ep_rb(sb);
@@ -55,21 +63,29 @@ int	exec_rrarrb(t_list *sa, t_list *sb, long nb)
 	int	i_sb;
 	int	i_sa;
 	int same;
+	int i;
 
 	same = 0;
+	i = 0;
 	i_sb = positioning_sb(nb, sb);
 	i_sa = find_place_sb(sa, nb);
 	if (i_sa < i_sb && i_sa > 0 && i_sb > 0)
-		same = i_sa + (i_sb - i_sa);
+	{
+		same = i_sa;
+		i_sb = i_sb - same;
+		i_sa = 0;
+	}
 	else if (i_sa > i_sb && i_sa > 0 && i_sb > 0)
-		same = i_sb + (i_sa - i_sb);
-	while (same > 0)
+	{
+		same = i_sb;
+		i_sa = i_sa - same;
+		i_sb = 0;
+	}
+	while (i < same)
 	{
 		ep_rrr(sa, sb);
-		same--;
+		i++;
 	}
-	i_sb = i_sb - same;
-	i_sa = i_sa - same;
 	while (i_sb > 0)
 	{
 		ep_rrb(sb);
