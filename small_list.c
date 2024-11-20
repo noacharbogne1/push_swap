@@ -6,7 +6,7 @@
 /*   By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 14:42:14 by ncharbog          #+#    #+#             */
-/*   Updated: 2024/11/20 11:32:40 by ncharbog         ###   ########.fr       */
+/*   Updated: 2024/11/20 13:18:20 by ncharbog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,24 +47,19 @@ void	four_elems(t_list *sa, t_list *sb)
 {
 	t_list	*tmp;
 	int		i;
-	int		min;
+	int		j;
 
-	i = 0;
-	min = 2147483647;
+	i = find_place_sa(sa, min(sa)) - 1;
 	tmp = sa->next;
-	while (tmp != sa)
+	j = i;
+	if (i > 2)
+		i = 4 - i;
+	while (i > 0)
 	{
-		if (min > tmp->nb)
-		{
-			min = tmp->nb;
-			i++;
-		}
-		tmp = tmp->next;
-	}
-	tmp = sa->next;
-	while (i > 1)
-	{
-		ep_ra(sa);
+		if (j > 2)
+			ep_rra(sa);
+		else
+			ep_ra(sa);
 		i--;
 	}
 	ep_pb(sa, sb);
