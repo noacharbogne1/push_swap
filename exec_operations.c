@@ -6,7 +6,7 @@
 /*   By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 14:52:05 by ncharbog          #+#    #+#             */
-/*   Updated: 2024/11/19 16:43:39 by ncharbog         ###   ########.fr       */
+/*   Updated: 2024/11/20 08:24:53 by ncharbog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	exec_rarb(t_list *sa, t_list *sb, long nb)
 		i_sb = 0;
 	if (i_sb != 0)
 		i_sb = len_lst(sb) - i_sb;
-	i_sa = len_lst(sa) - find_place(sa, nb);
+	i_sa = len_lst(sa) - find_place_sb(sa, nb);
 	if (i_sa < i_sb && i_sa > 0 && i_sb > 0)
 		same = i_sa + (i_sb - i_sa);
 	else if (i_sa > i_sb && i_sa > 0 && i_sb > 0)
@@ -58,7 +58,7 @@ int	exec_rrarrb(t_list *sa, t_list *sb, long nb)
 
 	same = 0;
 	i_sb = positioning_sb(nb, sb);
-	i_sa = find_place(sa, nb);
+	i_sa = find_place_sb(sa, nb);
 	if (i_sa < i_sb && i_sa > 0 && i_sb > 0)
 		same = i_sa + (i_sb - i_sa);
 	else if (i_sa > i_sb && i_sa > 0 && i_sb > 0)
@@ -94,7 +94,7 @@ int	exec_rrarb(t_list *sa, t_list *sb, long nb)
 		i_sb = 0;
 	if (i_sb != 0)
 		i_sb = len_lst(sb) - i_sb;
-	i_sa = find_place(sa, nb);
+	i_sa = find_place_sb(sa, nb);
 	while (i_sb > 0)
 	{
 		ep_rb(sb);
@@ -115,7 +115,7 @@ int	exec_rarrb(t_list *sa, t_list *sb, long nb)
 	int	i_sa;
 
 	i_sb = positioning_sb(nb, sb);
-	i_sa = len_lst(sa) - find_place(sa, nb);
+	i_sa = len_lst(sa) - find_place_sb(sa, nb);
 	while (i_sb > 0)
 	{
 		ep_rrb(sb);

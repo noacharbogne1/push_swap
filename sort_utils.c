@@ -6,7 +6,7 @@
 /*   By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 09:21:34 by ncharbog          #+#    #+#             */
-/*   Updated: 2024/11/19 17:08:16 by ncharbog         ###   ########.fr       */
+/*   Updated: 2024/11/20 08:26:26 by ncharbog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,21 @@
 int	positioning_sb(long nb, t_list *sb)
 {
 	t_list	*tmp;
-	t_list	*next;
+	t_list	*prev;
 	int		i;
 
 	i = 1;
 	tmp = sb->prev;
 	if (nb < min(sb) || nb > max(sb))
-		i = find_place(sb, max(sb));
+		i = find_place_sb(sb, max(sb));
 	else
 	{
 		while (tmp != sb)
 		{
-			next = tmp->prev;
-			if (next == sb)
-					next = sb->prev;
-			if (nb > tmp->nb && nb < next->nb)
+			prev = tmp->prev;
+			if (prev == sb)
+					prev = sb->prev;
+			if (nb > tmp->nb && nb < prev->nb)
 				break;
 			i++;
 			tmp = tmp->prev;
@@ -60,16 +60,16 @@ int	positioning_sa(long nb, t_list *sa)
 	int		i;
 
 	i = 1;
-	tmp = sb->next;
-	if (nb < min(sb) || nb > max(sb))
-		i = find_place(sb, max(sb));
+	tmp = sa->next;
+	if (nb < min(sa) || nb > max(sa))
+		i = find_place_sa(sa, max(sa));
 	else
 	{
-		while (tmp != sb)
+		while (tmp != sa)
 		{
 			next = tmp->next;
-			if (next == sb)
-					next = sb->next;
+			if (next == sa)
+					next = sa->next;
 			if (nb > tmp->nb && nb < next->nb)
 				break;
 			i++;
@@ -79,7 +79,7 @@ int	positioning_sa(long nb, t_list *sa)
 	return (i);
 }
 
-int	find_place_sb(t_list *root, long nb)
+int	find_place_sa(t_list *root, long nb)
 {
 	t_list	*tmp;
 	int		i;

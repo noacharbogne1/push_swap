@@ -6,7 +6,7 @@
 /*   By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 17:08:39 by ncharbog          #+#    #+#             */
-/*   Updated: 2024/11/19 17:08:53 by ncharbog         ###   ########.fr       */
+/*   Updated: 2024/11/20 08:34:18 by ncharbog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,7 @@ int	case_r(long nb, t_list *sa)
 {
 	int		i;
 
-	i = positioning_sb(nb, sa);
-	if (i == len_lst(sa))
-		i = 0;
-	if (i != 0)
-		i = len_lst(sa) - i;
+	i = positioning_sa(nb, sa);
 	return (i);
 }
 
@@ -28,6 +24,10 @@ int	case_rr(long nb, t_list *sa)
 {
 	int		i;
 
-	i = positioning_sb(nb, sa);
+	i = positioning_sa(nb, sa);
+	if (i == len_lst(sa))
+		i = 0;
+	if (i != 0)
+		i = len_lst(sa) - i;
 	return (i);
 }

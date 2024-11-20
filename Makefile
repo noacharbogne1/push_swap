@@ -6,7 +6,7 @@
 #    By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/19 10:08:42 by ncharbog          #+#    #+#              #
-#    Updated: 2024/11/19 11:37:57 by ncharbog         ###   ########.fr        #
+#    Updated: 2024/11/20 08:39:04 by ncharbog         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,7 @@ SRC = handle_input.c \
 	exec_print.c \
 	exec_print2.c \
 	exec_print3.c \
+	find_case.c \
 	operations.c \
 	small_list.c \
 	sort_utils.c \
