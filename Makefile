@@ -6,7 +6,7 @@
 #    By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/19 10:08:42 by ncharbog          #+#    #+#              #
-#    Updated: 2024/11/21 09:43:50 by ncharbog         ###   ########.fr        #
+#    Updated: 2024/11/21 12:44:52 by ncharbog         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,4 +50,4 @@ fclean: clean
 	rm -f $(NAME)
 re:	fclean all
 
-.PHONY: all clean fclean re bonus
+.PHONY: all clean fclean re

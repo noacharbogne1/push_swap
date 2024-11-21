@@ -6,7 +6,7 @@
 /*   By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 15:33:55 by ncharbog          #+#    #+#             */
-/*   Updated: 2024/11/21 10:42:02 by ncharbog         ###   ########.fr       */
+/*   Updated: 2024/11/21 12:40:54 by ncharbog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,4 +54,14 @@ long	errors_result(t_list *root, long result)
 		add_back(root, result);
 		return (result);
 	}
+}
+
+int	is_space(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i] && str[i] == ' ')
+		i++;
+	return (i);
 }

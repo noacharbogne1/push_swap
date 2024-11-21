@@ -6,7 +6,7 @@
 /*   By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 10:03:39 by ncharbog          #+#    #+#             */
-/*   Updated: 2024/11/21 10:48:23 by ncharbog         ###   ########.fr       */
+/*   Updated: 2024/11/21 12:43:33 by ncharbog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ int			ft_count(long n);
 int			prepare_sorting(t_list *sa, t_list *sb);
 int			write_error(t_list *sa, t_list *sb);
 long		errors_result(t_list *root, long result);
+int			is_space(char *str);
 
 // stacks_utils.c
 int			check_order(t_list *root);
@@ -128,8 +129,5 @@ void		ep_pa(t_list *sa, t_list *sb);
 
 //exec_print3.c
 void		ep_pb(t_list *sa, t_list *sb);
-
-// à supprimer
-void		print_list(t_list *root);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 13:56:32 by ncharbog          #+#    #+#             */
-/*   Updated: 2024/11/21 10:41:43 by ncharbog         ###   ########.fr       */
+/*   Updated: 2024/11/21 12:43:53 by ncharbog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_count(long n)
 {
-	size_t		count;
+	int	count;
 
 	count = 1;
 	if (n < 0)
@@ -81,6 +81,7 @@ long	ft_across(char *str, t_list *root)
 	result = 0;
 	while (str[i])
 	{
+		i += is_space(&str[i]);
 		if (str[i] == '0')
 		{
 			i += ft_iszero(&str[i], root);
@@ -89,8 +90,7 @@ long	ft_across(char *str, t_list *root)
 			else
 				result = i;
 		}
-		while (str[i] && str[i] == ' ')
-			i++;
+		i += is_space(&str[i]);
 		if (!str[i])
 			break ;
 		result = ft_atol(&str[i]);
@@ -125,6 +125,5 @@ int	main(int argc, char **argv)
 		ft_free(&sb);
 		return (1);
 	}
-	write(2, "Error\n", 6);
 	return (0);
 }
