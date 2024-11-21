@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   big_list.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: noacharbogne <noacharbogne@student.42.f    +#+  +:+       +#+        */
+/*   By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 10:31:11 by noacharbogn       #+#    #+#             */
-/*   Updated: 2024/11/20 17:24:35 by noacharbogn      ###   ########.fr       */
+/*   Updated: 2024/11/21 10:14:18 by ncharbog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,6 @@ void	sort_list(t_list *sa, t_list *sb)
 	int		i;
 
 	i = 0;
-	ep_pb(sa, sb);
-	ep_pb(sa, sb);
-	if (check_order(sb))
-		ep_sb(sb);
 	while (len_lst(sa) > 3)
 	{
 		tmp = sa->next;

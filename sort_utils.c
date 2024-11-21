@@ -6,7 +6,7 @@
 /*   By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 09:21:34 by ncharbog          #+#    #+#             */
-/*   Updated: 2024/11/20 10:02:09 by ncharbog         ###   ########.fr       */
+/*   Updated: 2024/11/21 10:26:09 by ncharbog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ int	positioning_sb(long nb, t_list *sb)
 		{
 			prev = tmp->prev;
 			if (prev == sb)
-					prev = sb->prev;
+				prev = sb->prev;
 			if (nb > tmp->nb && nb < prev->nb)
-				break;
+				break ;
 			i++;
 			tmp = tmp->prev;
 		}
@@ -69,9 +69,9 @@ int	positioning_sa(long nb, t_list *sa)
 		{
 			next = tmp->next;
 			if (next == sa)
-					next = sa->next;
+				next = sa->next;
 			if (nb > tmp->nb && nb < next->nb)
-				break;
+				break ;
 			i++;
 			tmp = tmp->next;
 		}

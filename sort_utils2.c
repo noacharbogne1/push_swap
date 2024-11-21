@@ -6,7 +6,7 @@
 /*   By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 15:44:03 by ncharbog          #+#    #+#             */
-/*   Updated: 2024/11/20 15:44:30 by ncharbog         ###   ########.fr       */
+/*   Updated: 2024/11/21 10:18:12 by ncharbog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 long	min(t_list *root)
 {
-	t_list *tmp;
+	t_list	*tmp;
 	long	min;
 
 	min = 2147483648;
@@ -30,7 +30,7 @@ long	min(t_list *root)
 
 long	max(t_list *root)
 {
-	t_list *tmp;
+	t_list	*tmp;
 	long	max;
 
 	max = -2147483649;

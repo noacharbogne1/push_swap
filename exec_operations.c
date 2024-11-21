@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   exec_operations.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: noacharbogne <noacharbogne@student.42.f    +#+  +:+       +#+        */
+/*   By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 14:52:05 by ncharbog          #+#    #+#             */
-/*   Updated: 2024/11/20 18:05:12 by noacharbogn      ###   ########.fr       */
+/*   Updated: 2024/11/21 10:16:41 by ncharbog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	exec_rarb(t_list *sa, t_list *sb, long nb)
 int	exec_rrarrb(t_list *sa, t_list *sb, long nb)
 {
 	t_rrarrb	rrarrb;
-	
+
 	rrarrb = calculate_indices_rrarrb(sa, sb, nb);
 	while (rrarrb.same)
 	{

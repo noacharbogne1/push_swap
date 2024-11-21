@@ -6,13 +6,13 @@
 /*   By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 11:25:47 by noacharbogn       #+#    #+#             */
-/*   Updated: 2024/11/20 08:24:40 by ncharbog         ###   ########.fr       */
+/*   Updated: 2024/11/21 10:16:21 by ncharbog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int find_combination(t_list *sa, t_list *sb)
+int	find_combination(t_list *sa, t_list *sb)
 {
 	t_list	*tmp;
 	int		i;

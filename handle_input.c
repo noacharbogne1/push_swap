@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   handle_input.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: noacharbogne <noacharbogne@student.42.f    +#+  +:+       +#+        */
+/*   By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 13:56:32 by ncharbog          #+#    #+#             */
-/*   Updated: 2024/11/20 18:10:13 by noacharbogn      ###   ########.fr       */
+/*   Updated: 2024/11/21 10:41:43 by ncharbog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,33 +92,13 @@ long	ft_across(char *str, t_list *root)
 		while (str[i] && str[i] == ' ')
 			i++;
 		if (!str[i])
-			break;
+			break ;
 		result = ft_atol(&str[i]);
-		if (!result || result > 2147483647 || result < -2147483648 || ft_count(result) > 12)
+		if (!errors_result(root, result))
 			return (0);
-		if (ft_check_dup(result, root))
-			return (0);
-		add_back(root, result);
 		i += ft_count(result);
 	}
 	return (result);
-}
-
-// À RETIRER //
-
-#include <stdio.h>
-void print_list(t_list *root)
-{
-	if (!root)
-		return;
-    t_list *current = root->next;
-    while (current)
-    {
-       	printf("\n%ld", current->nb);
-		current = current->next;
-		if (current == root)
-			return ;
-    }
 }
 
 int	main(int argc, char **argv)
@@ -141,7 +121,6 @@ int	main(int argc, char **argv)
 		prepare_sorting(sa, sb);
 		if (!prepare_sorting(sa, sb))
 			return (ft_error(sa, sb));
-		print_list(sa);
 		ft_free(&sa);
 		ft_free(&sb);
 		return (1);
