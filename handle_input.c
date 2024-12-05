@@ -6,7 +6,7 @@
 /*   By: noacharbogne <noacharbogne@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 13:56:32 by ncharbog          #+#    #+#             */
-/*   Updated: 2024/12/05 14:58:19 by noacharbogn      ###   ########.fr       */
+/*   Updated: 2024/12/05 15:04:33 by noacharbogn      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ long	ft_across(char *str, t_list *root)
 	}
 	return (result);
 }
-#include <stdio.h>
+
 int	main(int argc, char **argv)
 {
 	int		i;
@@ -115,12 +115,6 @@ int	main(int argc, char **argv)
 			if (!ft_across(argv[i], sa))
 				return (write_error(sa, sb));
 			i++;
-		}
-		t_list *tmp = sa->next;
-		while (tmp != sa)
-		{
-			printf("%ld\n", tmp->nb);
-			tmp = tmp->next;
 		}
 		prepare_sorting(sa, sb);
 		if (!prepare_sorting(sa, sb))
