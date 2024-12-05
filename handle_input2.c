@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   handle_input2.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+        */
+/*   By: noacharbogne <noacharbogne@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 15:33:55 by ncharbog          #+#    #+#             */
-/*   Updated: 2024/11/21 12:40:54 by ncharbog         ###   ########.fr       */
+/*   Updated: 2024/12/05 15:02:37 by noacharbogn      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,11 +49,7 @@ long	errors_result(t_list *root, long result)
 		return (0);
 	if (ft_check_dup(result, root))
 		return (0);
-	else
-	{
-		add_back(root, result);
-		return (result);
-	}
+	return (1);
 }
 
 int	is_space(char *str)
@@ -61,7 +57,7 @@ int	is_space(char *str)
 	int	i;
 
 	i = 0;
-	while (str[i] && str[i] == ' ')
+	while (str[i] && (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13)))
 		i++;
 	return (i);
 }

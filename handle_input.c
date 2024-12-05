@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   handle_input.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+        */
+/*   By: noacharbogne <noacharbogne@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 13:56:32 by ncharbog          #+#    #+#             */
-/*   Updated: 2024/11/21 12:43:53 by ncharbog         ###   ########.fr       */
+/*   Updated: 2024/12/05 14:58:19 by noacharbogn      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,31 +30,32 @@ int	ft_count(long n)
 	return (count);
 }
 
-long	ft_atol(char *nptr)
+long	ft_atol(t_list *root, char *nptr)
 {
 	int		i;
-	int		n;
+	int		sign;
 	long	result;
 
 	i = 0;
-	n = 0;
+	sign = 1;
 	result = 0;
-	while (nptr[i] == ' ' || (nptr[i] >= 9 && nptr[i] <= 13))
-		i++;
 	if (nptr[i] == '-' || nptr[i] == '+')
 	{
 		if (nptr[i] == '-')
-			n++;
+			sign = -1;
 		i++;
 	}
+	while (nptr[i] == '0')
+		i++;
 	while (nptr[i] >= '0' && nptr[i] <= '9')
 	{
 		result = result * 10 + (nptr[i] - '0');
 		i++;
 	}
-	if (n == 1)
-		return (result * -1);
-	return (result);
+	if (!errors_result(root, result))
+		return (0);
+	add_back(root, (result * sign));
+	return (i);
 }
 
 int	ft_check_dup(long result, t_list *root)
@@ -93,14 +94,11 @@ long	ft_across(char *str, t_list *root)
 		i += is_space(&str[i]);
 		if (!str[i])
 			break ;
-		result = ft_atol(&str[i]);
-		if (!errors_result(root, result))
-			return (0);
-		i += ft_count(result);
+		i += ft_atol(root, &str[i]);
 	}
 	return (result);
 }
-
+#include <stdio.h>
 int	main(int argc, char **argv)
 {
 	int		i;
@@ -117,6 +115,12 @@ int	main(int argc, char **argv)
 			if (!ft_across(argv[i], sa))
 				return (write_error(sa, sb));
 			i++;
+		}
+		t_list *tmp = sa->next;
+		while (tmp != sa)
+		{
+			printf("%ld\n", tmp->nb);
+			tmp = tmp->next;
 		}
 		prepare_sorting(sa, sb);
 		if (!prepare_sorting(sa, sb))

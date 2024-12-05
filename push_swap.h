@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+        */
+/*   By: noacharbogne <noacharbogne@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 10:03:39 by ncharbog          #+#    #+#             */
-/*   Updated: 2024/11/21 12:43:33 by ncharbog         ###   ########.fr       */
+/*   Updated: 2024/12/05 15:01:28 by noacharbogn      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ typedef struct s_rrarrb
 
 // handle_input.c
 long		ft_across(char *str, t_list *root);
-long		ft_atol(char *nptr);
+long		ft_atol(t_list *root, char *nptr);
 int			ft_check_dup(long result, t_list *root);
 int			ft_count(long n);
 
