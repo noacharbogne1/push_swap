@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   handle_input2.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: noacharbogne <noacharbogne@student.42.f    +#+  +:+       +#+        */
+/*   By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 15:33:55 by ncharbog          #+#    #+#             */
-/*   Updated: 2024/12/05 15:02:37 by noacharbogn      ###   ########.fr       */
+/*   Updated: 2024/12/09 18:19:11 by ncharbog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,14 +42,19 @@ int	write_error(t_list *sa, t_list *sb)
 	return (0);
 }
 
-long	errors_result(t_list *root, long result)
+void	errors_result(t_list *sa, t_list *sb, long result)
 {
 	if (!result || result > 2147483647 || result < -2147483648
 		|| ft_count(result) > 12)
-		return (0);
-	if (ft_check_dup(result, root))
-		return (0);
-	return (1);
+	{
+		write_error(sa, sb);
+		exit(0);
+	}
+	else if (ft_check_dup(result, sa))
+	{
+		write_error(sa, sb);
+		exit(0);
+	}
 }
 
 int	is_space(char *str)

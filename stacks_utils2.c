@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stacks_utils2.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: noacharbogne <noacharbogne@student.42.f    +#+  +:+       +#+        */
+/*   By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 16:39:44 by ncharbog          #+#    #+#             */
-/*   Updated: 2024/12/05 14:35:04 by noacharbogn      ###   ########.fr       */
+/*   Updated: 2024/12/09 18:08:08 by ncharbog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,8 @@ int	ft_iszero(char *str, t_list *root)
 		result = result * 10 + (str[i] - '0');
 		i++;
 	}
-	if (ft_check_dup(0, root))
+	if (((str[i] < 9 || str[i] > 13) && (str[i] != ' ' && str[i] != '\0'))
+		|| ft_check_dup(0, root) == 1)
 		return (-1);
 	add_back(root, result * sign);
 	return (i);

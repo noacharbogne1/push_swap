@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: noacharbogne <noacharbogne@student.42.f    +#+  +:+       +#+        */
+/*   By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 10:03:39 by ncharbog          #+#    #+#             */
-/*   Updated: 2024/12/05 15:01:28 by noacharbogn      ###   ########.fr       */
+/*   Updated: 2024/12/09 18:20:19 by ncharbog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,15 +38,15 @@ typedef struct s_rrarrb
 }				t_rrarrb;
 
 // handle_input.c
-long		ft_across(char *str, t_list *root);
-long		ft_atol(t_list *root, char *nptr);
+long		ft_across(char *str, t_list *sa, t_list *sb);
+long		ft_atol(t_list *sa, t_list *sb, char *nptr);
 int			ft_check_dup(long result, t_list *root);
 int			ft_count(long n);
 
 //handle_input2.c
 int			prepare_sorting(t_list *sa, t_list *sb);
 int			write_error(t_list *sa, t_list *sb);
-long		errors_result(t_list *root, long result);
+void		errors_result(t_list *sa, t_list *sb, long result);
 int			is_space(char *str);
 
 // stacks_utils.c

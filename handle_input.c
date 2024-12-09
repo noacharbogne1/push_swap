@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   handle_input.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: noacharbogne <noacharbogne@student.42.f    +#+  +:+       +#+        */
+/*   By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 13:56:32 by ncharbog          #+#    #+#             */
-/*   Updated: 2024/12/05 15:04:33 by noacharbogn      ###   ########.fr       */
+/*   Updated: 2024/12/09 18:20:53 by ncharbog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	ft_count(long n)
 	return (count);
 }
 
-long	ft_atol(t_list *root, char *nptr)
+long	ft_atol(t_list *sa, t_list *sb, char *nptr)
 {
 	int		i;
 	int		sign;
@@ -52,9 +52,8 @@ long	ft_atol(t_list *root, char *nptr)
 		result = result * 10 + (nptr[i] - '0');
 		i++;
 	}
-	if (!errors_result(root, result))
-		return (0);
-	add_back(root, (result * sign));
+	errors_result(sa, sb, result);
+	add_back(sa, (result * sign));
 	return (i);
 }
 
@@ -73,30 +72,29 @@ int	ft_check_dup(long result, t_list *root)
 	return (0);
 }
 
-long	ft_across(char *str, t_list *root)
+long	ft_across(char *str, t_list *sa, t_list *sb)
 {
 	int		i;
-	long	result;
+	int		error;
 
 	i = 0;
-	result = 0;
+	error = 0;
 	while (str[i])
 	{
 		i += is_space(&str[i]);
 		if (str[i] == '0')
 		{
-			i += ft_iszero(&str[i], root);
-			if (i == -1)
+			error = i;
+			i += ft_iszero(&str[i], sa);
+			if (error > i)
 				return (0);
-			else
-				result = i;
 		}
 		i += is_space(&str[i]);
 		if (!str[i])
 			break ;
-		i += ft_atol(root, &str[i]);
+		i += ft_atol(sa, sb, &str[i]);
 	}
-	return (result);
+	return (i);
 }
 
 int	main(int argc, char **argv)
@@ -112,7 +110,7 @@ int	main(int argc, char **argv)
 		sb = create_list();
 		while (argv[i])
 		{
-			if (!ft_across(argv[i], sa))
+			if (!ft_across(argv[i], sa, sb))
 				return (write_error(sa, sb));
 			i++;
 		}
