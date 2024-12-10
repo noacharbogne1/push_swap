@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: noacharbogne <noacharbogne@student.42.f    +#+  +:+       +#+         #
+#    By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/19 10:08:42 by ncharbog          #+#    #+#              #
-#    Updated: 2024/12/05 14:23:28 by noacharbogn      ###   ########.fr        #
+#    Updated: 2024/12/10 08:49:59 by ncharbog         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,18 +34,21 @@ SRC = handle_input.c \
 	stacks_utils.c \
 	stacks_utils2.c
 
-OBJ = $(SRC:.c=.o)
+OBJ_DIR = .objects
+
+OBJ = $(addprefix $(OBJ_DIR)/, $(SRC:.c=.o))
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
 	cc -o $(NAME) $(OBJ)
 
-%.o: %.c
+$(OBJ_DIR)/%.o: %.c
+	mkdir -p $(@D)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -f $(OBJ)
+	rm -rf $(OBJ_DIR)
 fclean: clean
 	rm -f $(NAME)
 re:	fclean all

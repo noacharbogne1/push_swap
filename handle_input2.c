@@ -6,7 +6,7 @@
 /*   By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 15:33:55 by ncharbog          #+#    #+#             */
-/*   Updated: 2024/12/10 08:28:08 by ncharbog         ###   ########.fr       */
+/*   Updated: 2024/12/10 08:51:01 by ncharbog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	errors_result(t_list *sa, t_list *sb, long result)
 		write_error(sa, sb);
 		exit(0);
 	}
-	else if (ft_check_dup(result, sa))
+	if (ft_check_dup(result, sa))
 	{
 		write_error(sa, sb);
 		exit(0);

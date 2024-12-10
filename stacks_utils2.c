@@ -6,7 +6,7 @@
 /*   By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 16:39:44 by ncharbog          #+#    #+#             */
-/*   Updated: 2024/12/10 08:38:53 by ncharbog         ###   ########.fr       */
+/*   Updated: 2024/12/10 09:11:30 by ncharbog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,31 +38,29 @@ int	len_lst(t_list *root)
 
 int	ft_iszero(char *str, t_list *sa, t_list *sb)
 {
-	int	i;
-	int	sign;
+	int		i;
 	long	result;
 
 	i = 0;
-	sign = 1;
 	result = 0;
-	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
-		i++;
-	if (str[i] == '-' || str[i] == '+')
-	{
-		if (str[i] == '-')
-			sign = -1;
-		i++;
-	}
 	while (str[i] >= '0' && str[i] <= '9')
 	{
 		result = result * 10 + (str[i] - '0');
 		i++;
 	}
-	if ((str[i] != ' ' && str[i] != '\0') || ft_check_dup(0, sa) == 1)
-		return (-1);
-	errors_result(sa, sb, result);
-	add_back(sa, result * sign);
-	return (i);
+	if (result == 0 && (str[i] == ' ' || str[i] == '\0')
+		&& ft_check_dup(0, sa) == 0)
+	{
+		add_back(sa, result);
+		return (i);
+	}
+	if ((str[i] == ' ' || str[i] == '\0') && ft_check_dup(0, sa) == 0)
+	{
+		errors_result(sa, sb, result);
+		add_back(sa, result);
+		return (i);
+	}
+	return (-1);
 }
 
 void	add_front(t_list *root, long content)
