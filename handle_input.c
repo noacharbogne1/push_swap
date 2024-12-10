@@ -6,7 +6,7 @@
 /*   By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 13:56:32 by ncharbog          #+#    #+#             */
-/*   Updated: 2024/12/10 08:37:34 by ncharbog         ###   ########.fr       */
+/*   Updated: 2024/12/10 09:33:34 by ncharbog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ long	ft_atol(t_list *sa, t_list *sb, char *nptr)
 		result = result * 10 + (nptr[i] - '0');
 		i++;
 	}
-	errors_result(sa, sb, result);
+	errors_result(sa, sb, result * sign);
 	add_back(sa, (result * sign));
 	return (i);
 }
@@ -89,10 +89,8 @@ long	ft_across(char *str, t_list *sa, t_list *sb)
 			if (error > i)
 				return (0);
 		}
-		i += is_space(&str[i]);
-		if (!str[i])
-			break ;
-		i += ft_atol(sa, sb, &str[i]);
+		else
+			i += ft_atol(sa, sb, &str[i]);
 	}
 	return (i);
 }
