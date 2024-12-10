@@ -6,7 +6,7 @@
 /*   By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 13:56:32 by ncharbog          #+#    #+#             */
-/*   Updated: 2024/12/09 18:20:53 by ncharbog         ###   ########.fr       */
+/*   Updated: 2024/12/10 08:37:34 by ncharbog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ long	ft_across(char *str, t_list *sa, t_list *sb)
 		if (str[i] == '0')
 		{
 			error = i;
-			i += ft_iszero(&str[i], sa);
+			i += ft_iszero(&str[i], sa, sb);
 			if (error > i)
 				return (0);
 		}

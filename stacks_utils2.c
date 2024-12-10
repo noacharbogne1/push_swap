@@ -6,7 +6,7 @@
 /*   By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 16:39:44 by ncharbog          #+#    #+#             */
-/*   Updated: 2024/12/09 18:08:08 by ncharbog         ###   ########.fr       */
+/*   Updated: 2024/12/10 08:38:53 by ncharbog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,11 @@ int	len_lst(t_list *root)
 	return (len);
 }
 
-int	ft_iszero(char *str, t_list *root)
+int	ft_iszero(char *str, t_list *sa, t_list *sb)
 {
 	int	i;
 	int	sign;
-	int	result;
+	long	result;
 
 	i = 0;
 	sign = 1;
@@ -58,10 +58,10 @@ int	ft_iszero(char *str, t_list *root)
 		result = result * 10 + (str[i] - '0');
 		i++;
 	}
-	if (((str[i] < 9 || str[i] > 13) && (str[i] != ' ' && str[i] != '\0'))
-		|| ft_check_dup(0, root) == 1)
+	if ((str[i] != ' ' && str[i] != '\0') || ft_check_dup(0, sa) == 1)
 		return (-1);
-	add_back(root, result * sign);
+	errors_result(sa, sb, result);
+	add_back(sa, result * sign);
 	return (i);
 }
 

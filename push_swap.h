@@ -6,7 +6,7 @@
 /*   By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 10:03:39 by ncharbog          #+#    #+#             */
-/*   Updated: 2024/12/09 18:20:19 by ncharbog         ###   ########.fr       */
+/*   Updated: 2024/12/10 08:38:04 by ncharbog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void		del_node(t_list *element);
 
 //stacks_utils2.c
 int			ft_error(t_list *sa, t_list *sb);
-int			ft_iszero(char *str, t_list *root);
+int			ft_iszero(char *str, t_list *sa, t_list *sb);
 int			len_lst(t_list *root);
 void		add_front(t_list *root, long content);
 
