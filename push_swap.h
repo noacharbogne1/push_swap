@@ -6,7 +6,7 @@
 /*   By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 10:03:39 by ncharbog          #+#    #+#             */
-/*   Updated: 2024/12/10 08:38:04 by ncharbog         ###   ########.fr       */
+/*   Updated: 2024/12/16 10:59:58 by ncharbog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ int			prepare_sorting(t_list *sa, t_list *sb);
 int			write_error(t_list *sa, t_list *sb);
 void		errors_result(t_list *sa, t_list *sb, long result);
 int			is_space(char *str);
+int			check_args(char *str);
 
 // stacks_utils.c
 int			check_order(t_list *root);

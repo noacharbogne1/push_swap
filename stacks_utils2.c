@@ -6,7 +6,7 @@
 /*   By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 16:39:44 by ncharbog          #+#    #+#             */
-/*   Updated: 2024/12/10 09:23:08 by ncharbog         ###   ########.fr       */
+/*   Updated: 2024/12/16 11:17:07 by ncharbog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ int	ft_iszero(char *str, t_list *sa, t_list *sb)
 
 	i = 0;
 	result = 0;
+	if (str && (*str == '+' || *str == '-'))
+		i++;
 	while (str[i] >= '0' && str[i] <= '9')
 	{
 		result = result * 10 + (str[i] - '0');

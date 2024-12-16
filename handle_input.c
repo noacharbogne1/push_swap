@@ -6,7 +6,7 @@
 /*   By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 13:56:32 by ncharbog          #+#    #+#             */
-/*   Updated: 2024/12/10 15:13:41 by ncharbog         ###   ########.fr       */
+/*   Updated: 2024/12/16 11:14:04 by ncharbog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,6 @@ long	ft_atol(t_list *sa, t_list *sb, char *nptr)
 			sign = -1;
 		i++;
 	}
-	while (nptr[i] == '0')
-		i++;
 	while (nptr[i] >= '0' && nptr[i] <= '9')
 	{
 		result = result * 10 + (nptr[i] - '0');
@@ -82,7 +80,9 @@ long	ft_across(char *str, t_list *sa, t_list *sb)
 	while (str[i])
 	{
 		i += is_space(&str[i]);
-		if (str[i] && str[i] == '0')
+		if (!check_args(&str[i]))
+			return (0);
+		if (str[i] && (str[i] == '0' || str[i + 1] == '0'))
 		{
 			error = i;
 			i += ft_iszero(&str[i], sa, sb);

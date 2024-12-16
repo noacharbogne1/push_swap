@@ -6,11 +6,29 @@
 /*   By: ncharbog <ncharbog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 15:33:55 by ncharbog          #+#    #+#             */
-/*   Updated: 2024/12/10 08:51:01 by ncharbog         ###   ########.fr       */
+/*   Updated: 2024/12/16 11:21:06 by ncharbog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	check_args(char *str)
+{
+	int		stop;
+
+	if (!str)
+		return (0);
+	stop = is_space(str);
+	if (*str == '+' || *str == '-')
+		str++;
+	while (*str >= '0' && *str <= '9')
+		str++;
+	if (*str == '+' || *str == '-')
+		return (0);
+	if (!*str || stop == 0)
+		return (1);
+	return (0);
+}
 
 int	prepare_sorting(t_list *sa, t_list *sb)
 {
